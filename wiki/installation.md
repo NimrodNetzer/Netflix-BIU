@@ -8,6 +8,10 @@ Clone or download the repository to your local machine.
 
 Navigate into the root directory of the project.
 
+```
+cd Netflix-BIU
+```
+
 ## 3. Create the `.env.prod` File
 
 Before running the services, you need to create a `.env.prod` file in the `config` directory within `./MainApi`.
