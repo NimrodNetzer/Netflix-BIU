@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:padding="10dp"
+    android:paddingTop="35dp">
+
+    <!-- ✅ Netflix Logo -->
+    <ImageView
+        android:id="@+id/netflix_logo"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/netflix_logo"
+        android:src="@drawable/netflix"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- ✅ Search Icon -->
+    <ImageView
+        android:id="@+id/icon_search"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="2dp"
+        android:contentDescription="@string/search_icon"
+        android:src="@android:drawable/ic_menu_search"
+        app:tint="@color/icon_tint"
+        android:padding="6dp"
+        android:background="?attr/selectableItemBackgroundBorderless" />
+
+    <!-- ✅ Admin Button -->
+    <ImageView
+        android:id="@+id/button_admin"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_toStartOf="@id/icon_search"
+        android:layout_marginEnd="6dp"
+        android:visibility="gone"
+        android:src="@drawable/admin"
+        android:contentDescription="@string/admin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="4dp"
+        android:scaleType="fitCenter" />
+
+
+    <!-- ✅ Exit Button -->
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="60dp"
+        android:layout_height="36dp"
+        android:layout_toStartOf="@id/button_admin"
+        android:layout_marginEnd="6dp"
+        android:backgroundTint="@color/button_red"
+        android:text="@string/exit"
+        android:textColor="@color/text_on_button"
+        android:textSize="12sp" />
+
+    <!-- ✅ Theme Toggle -->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/theme_switch"
+        android:layout_width="60dp"
+        android:layout_height="36dp"
+        android:layout_toStartOf="@id/button_exit"
+        android:layout_marginEnd="6dp"
+        android:text="@string/theme_moon"
+        android:textColor="@color/text_primary"
+        android:textSize="12sp"
+        android:background="@android:color/transparent" />
+</RelativeLayout>

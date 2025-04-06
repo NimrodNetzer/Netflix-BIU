@@ -24,6 +24,11 @@ const UserSchema = new Schema({
         type: String, // User's nickname
         required: true // Nickname is mandatory
     },
+    admin: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
     picture: {
         type: String, // URL for the user's profile picture
         required: false // Picture is optional

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true">
+
+        <activity android:name=".View.WelcomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".View.MovieDetailActivity"/>
+
+        <activity
+            android:name=".View.VideoPlayerActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity android:name=".View.LoginActivity" android:exported="true"/>
+        <activity android:name=".View.SignupActivity" android:exported="true"/>
+        <activity android:name=".View.MainActivity" android:exported="true"/>
+        <activity android:name=".View.AdminActivity"
+            android:theme="@style/Theme.Netflixandroid" />
+
+
+        <activity android:name=".View.SearchActivity" />
+        <activity android:name=".View.AddCategoryActivity" />
+        <activity android:name=".View.MovieFormActivity" />
+    </application>
+
+</manifest>

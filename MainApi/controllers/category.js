@@ -48,12 +48,13 @@ const getCategory = async (req, res) => {
 
 const updateCategory = async (req, res) => {
   try {
-    const allowedFields = ['name', 'promoted'];
+    const allowedFields = ['id','_id','name', 'promoted'];
 
     const bodyKeys = Object.keys(req.body);
     const hasInvalidField = bodyKeys.some((key) => !allowedFields.includes(key));
 
     if (hasInvalidField) {
+      console.log('Invalid field');
       return res.status(400).json({
         error: 'Only "name" and "promoted" fields are allowed.',
       });
@@ -83,9 +84,11 @@ const deleteCategory = async (req, res) => {
     res.setHeader('Location', categoryUrl);
     res.status(204).send();
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    const statusCode = error.status || 500; // Use the status from the error or default to 500
+    res.status(statusCode).json({ error: error.message });
   }
 };
+
 
 module.exports = {
   getCategories,

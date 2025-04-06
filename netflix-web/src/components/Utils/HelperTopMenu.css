@@ -1,0 +1,127 @@
+/* Main Container */
+.helper-menu-container {
+    position: relative; /* Ensures the dropdown aligns with the profile button */
+    display: inline-block;
+    z-index: 1000;
+  }
+  
+  /* Profile Button */
+  .profile-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .profile-icon {
+    width: 30px; /* Default profile icon size */
+    height: 30px;
+    border-radius: 50%; /* Circular icon */
+    object-fit: cover; /* Ensure the icon fits */
+  }
+  
+/* Arrow Icon Default State */
+.arrow-icon {
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg); /* Default pointing down-right */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Arrow Rotates Up (Menu Open) */
+.arrow-icon.open {
+    transform: rotate(-135deg); /* Points up-left */
+}
+
+/* Arrow Rotates Down (Menu Closed) */
+.arrow-icon.closed {
+    transform: rotate(135deg); /* Flips to pointing down-left */
+}
+  
+  /* Dropdown Menu */
+  .helper-dropdown {
+    position: absolute;
+    top: 100%; /* Align directly below the profile button */
+    right: 0;
+    margin-top: 5px; /* Optional: small gap */
+    background-color: rgba(20, 20, 20, 0.92); /* Slight transparency */
+    color: white;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Floating shadow */
+    width: 200px;
+    z-index: 10;
+    overflow: hidden;
+    opacity: 0; /* Initially invisible */
+    transform: translateY(-10px); /* Flying effect */
+    pointer-events: none; /* Prevent interaction when hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Dropdown Visibility on Hover */
+  .helper-menu-container:hover .helper-dropdown {
+    opacity: 1; /* Fully visible on hover */
+    transform: translateY(0); /* Reset flying effect */
+    pointer-events: auto; /* Allow interaction */
+  }
+  
+  /* Menu Items */
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .menu-item:hover {
+    background-color: #333;
+  }
+  
+  .menu-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .avatar-menu img {
+    width: 30px; /* Set the desired size */
+    height: 30px; /* Equal width and height for a circle */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image scales nicely */
+}
+
+
+  .sign-out {
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center; /* Center text horizontally */
+    display: flex;
+    align-items: center; /* Center text vertically */
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .helper-dropdown {
+      width: 150px; /* Reduce dropdown width */
+      font-size: 14px; /* Adjust font size */
+    }
+  
+    .menu-item img {
+      width: 15px; /* Reduce icon size */
+      height: 15px;
+    }
+  
+    .menu-item {
+      padding: 8px; /* Reduce padding */
+    }
+  
+    .profile-icon {
+      width: 25px; /* Smaller profile icon */
+      height: 25px;
+    }
+  }
+  

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Movie"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Movie Name -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Movie Name:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/edit_movie_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Enter movie name"
+            android:background="@drawable/input_bg"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Description -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/edit_movie_description"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:hint="Enter movie description"
+            android:background="@drawable/input_bg"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+        <!-- Age Rating -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age Rating:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/edit_movie_age"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="number"
+            android:hint="Enter age rating (e.g., 13, 16, 18)"
+            android:background="@drawable/input_bg"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Duration -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duration:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+            <EditText
+                android:id="@+id/edit_movie_hours"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:inputType="number"
+                android:hint="Hours"
+                android:background="@drawable/input_bg"
+                android:textColor="@color/text_primary"
+                android:padding="8dp"
+                android:layout_marginEnd="8dp"/>
+            <EditText
+                android:id="@+id/edit_movie_minutes"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:inputType="number"
+                android:hint="Minutes"
+                android:background="@drawable/input_bg"
+                android:textColor="@color/text_primary"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+        <!-- Release Date -->
+        <EditText
+            android:id="@+id/edit_movie_release_date"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Select release date"
+            android:background="@drawable/input_bg"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"
+            android:focusable="false"
+            android:clickable="true"
+            android:drawableEnd="@drawable/ic_calendar"
+            android:drawablePadding="8dp"/>
+
+        <!-- Quality Spinner -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quality:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <Spinner
+            android:id="@+id/spinner_quality"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/netflix_spinner_bg"
+            android:popupBackground="@color/dropdown_background"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Language Spinner -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Language:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <Spinner
+            android:id="@+id/spinner_language"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/netflix_spinner_bg"
+            android:popupBackground="@color/dropdown_background"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Categories -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Categories:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <LinearLayout
+            android:id="@+id/category_checkbox_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Cast -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cast:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <LinearLayout
+            android:id="@+id/cast_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="8dp"/>
+        <Button
+            android:id="@+id/add_cast_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add Cast"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Upload Picture -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Picture:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <Button
+            android:id="@+id/button_upload_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Picture"
+            android:layout_marginBottom="8dp"/>
+        <ImageView
+            android:id="@+id/preview_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Upload Video -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Video:"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+        <Button
+            android:id="@+id/button_upload_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Video"
+            android:layout_marginBottom="8dp"/>
+        <VideoView
+            android:id="@+id/preview_video"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/button_submit_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Movie"
+            android:backgroundTint="@color/button_red"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Loading Indicator -->
+        <ProgressBar
+            android:id="@+id/progress_loading"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+    </LinearLayout>
+</ScrollView>

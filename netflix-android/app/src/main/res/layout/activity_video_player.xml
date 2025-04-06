@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- ✅ ExoPlayer Video View -->
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:use_controller="false"
+        app:resize_mode="fill" />
+
+    <!-- 🔙 Back Button -->
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_back"
+        android:contentDescription="@string/back"
+        android:tint="@color/icon_tint"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"/>
+
+    <!-- 🔘 Playback Controls -->
+    <LinearLayout
+        android:id="@+id/controls_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <!-- ⏪ Rewind -->
+        <ImageView
+            android:id="@+id/btn_rewind"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/rewind_10"
+            android:padding="8dp"
+            android:tint="@color/icon_tint"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/ic_rewind" />
+
+        <!-- ⏯ Play/Pause -->
+        <ImageView
+            android:id="@+id/btn_play_pause"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_pause"
+            android:contentDescription="@string/play_pause"
+            android:tint="@color/icon_tint"
+            android:padding="8dp" />
+
+        <!-- ⏩ Forward -->
+        <ImageView
+            android:id="@+id/btn_forward"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_forward"
+            android:contentDescription="@string/forward_10"
+            android:tint="@color/icon_tint"
+            android:padding="8dp"
+            android:layout_marginStart="48dp"/>
+    </LinearLayout>
+
+    <!-- 🔘 Seek Bar -->
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:progressTint="@color/button_red"
+        android:thumb="@drawable/custom_thumb"
+        android:background="@color/seekbar_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:max="100"
+        android:progress="20"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

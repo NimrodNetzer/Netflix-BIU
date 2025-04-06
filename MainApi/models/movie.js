@@ -12,6 +12,10 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  video: {
+    type: String,
+    required: true
+  },
   description: {
     type: String,
     required: true,
@@ -32,11 +36,13 @@ const movieSchema = new mongoose.Schema({
     type: String, // e.g., "HD", "SD", "4K"
     required: true,
   },
-  categoryId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true,
-  },
+  categories: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Category',
+      required: true,
+    },
+  ],
   cast: [
     {
       name: { type: String, required: true },
@@ -46,9 +52,11 @@ const movieSchema = new mongoose.Schema({
   properties: {
     type: Map,
     of: String,
+    required:false
   },
   movieData: {
     type: Object,
+    required:false
   },
   author: {
     type: String,

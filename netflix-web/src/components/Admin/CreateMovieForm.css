@@ -1,0 +1,163 @@
+.createmovie-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4); /* Matches category modal overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.createmovie-modal-content {
+  background: #181818; /* Dark background like category modal */
+  color: white; /* White text */
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+  max-height: 90vh;       /* Limits modal height */
+  overflow-y: auto;       /* Allows vertical scrolling */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Similar box shadow */
+}
+
+.createmovie-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white; /* White close button */
+}
+
+.createmovie-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.createmovie-row-group,
+.createmovie-row-group-wider {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.createmovie-form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.createmovie-form-group:last-child {
+  margin-right: 0;
+}
+
+.createmovie-full-width {
+  width: 100%;
+}
+
+.createmovie-form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.createmovie-form-input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #282828;  /* Dark input background */
+  color: white;         /* White text for inputs */
+  margin-bottom: 25px;
+}
+
+.createmovie-time-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.createmovie-time-input {
+  width: 50px;
+  padding: 8px;
+  border: 1px solid #3b3b3b;
+  border-radius: 4px;
+  margin-right: 5px;
+  background: #282828;
+  color: white;
+}
+
+.createmovie-scroll-wrapper {
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.createmovie-categories-container1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.createmovie-categories-container1 label {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.createmovie-cast-member {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.createmovie-remove-cast-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: white;
+}
+
+.createmovie-add-cast-button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.createmovie-add-cast-button:hover {
+  background: #0056b3;
+}
+
+.createmovie-success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.createmovie-submit-button {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.createmovie-submit-button:hover {
+  background: #218838;
+}

@@ -1,0 +1,144 @@
+/* ✅ Full-Screen Dark Background */
+.categories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #141414; /* Netflix Black */
+    min-height: 100vh;
+    color: white;
+}
+
+/* ✅ Spacing & Alignment */
+.categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Spread categories evenly */
+    gap: 30px; /* Increased gap for better spacing */
+    padding: 20px;
+    max-width: 90%; /* Restrict width for better alignment */
+}
+
+/* ✅ Category Box Styling (Netflix Look) */
+.category-box {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    width: 260px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ✅ Hover Effect */
+.category-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* ✅ Category Name & Promoted Label */
+.category-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.category-promoted {
+    font-size: 1rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ✅ Buttons Section */
+.category-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+/* ✅ Edit & Delete Buttons */
+.edit-button,
+.delete-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+/* ✅ Hover Effect for Buttons */
+.edit-button:hover,
+.delete-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* ✅ Colors for Edit & Delete */
+.delete-button {
+    background: rgba(255, 0, 0, 0.2);
+}
+.delete-button:hover {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+.edit-button {
+    background: rgba(255, 255, 0, 0.2);
+}
+.edit-button:hover {
+    background: rgba(255, 255, 0, 0.5);
+}
+
+/* ✅ Success & Error Messages */
+.success-message {
+    color: green;
+    background: rgba(0, 255, 0, 0.1);
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+}
+/* ✅ Error message for delete action */
+.delete-error-message {
+    color: white;
+    background: rgba(255, 0, 0, 0.8); /* Bright red */
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 50%;
+    margin: 20px auto; /* Center horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+}

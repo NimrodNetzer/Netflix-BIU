@@ -17,16 +17,18 @@
 #include "Commands/patch.h"
 #include "Commands/Delete.h"
 #include "Server/Server.h"
-
+#define POOL_SIZE 10
 
 int main() {
     IPersistence* persistence = new FilePersistence("data");
     DataManager& data_manager = DataManager::getInstance();
     data_manager.setPersistenceStrategy(persistence);
     data_manager.load();
-    Server server;
+    Executor* thread_pool = new ThreadPoolExecutor(POOL_SIZE);
+    Server server(thread_pool);
     server.run();
     delete persistence;
+    delete thread_pool;
     return 0;
 }
 

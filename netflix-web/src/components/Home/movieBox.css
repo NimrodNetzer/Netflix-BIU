@@ -1,0 +1,143 @@
+.movie-box {
+  position: relative;
+  height: 280px;
+  width: 340px;
+  margin: 2px;
+  overflow: hidden;
+  border-radius: 15px; 
+  box-shadow: none !important; /* ✅ Removes any shadow */
+  background-color: transparent !important; /* ✅ Ensures it blends with the page */
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  border: none !important; /* ✅ Ensures there's no border */
+}
+
+
+.movie-box:hover .default-image {
+  filter: brightness(0.5); /* Darkens the image */
+}
+
+.default-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease-in-out;
+}
+
+.movie-box:hover .default-image {
+  filter: brightness(0.6); /* Darkens the image */
+}
+
+.movie-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.movie-box:hover .movie-hover-overlay {
+  opacity: 1;
+}
+
+.movie-hover-content {
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.movie-title2 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.movie-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.play-button,
+.info-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid white;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.play-button:hover,
+.info-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.movie-info {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.movie-detail-box {
+  display: inline-block;
+  background: rgba(50, 50, 50, 0.8);
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: white;
+  text-align: center;
+}
+
+.movie-detail-box span {
+  font-size: 0.85rem;
+}
+
+.movie-categories {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.movie-category {
+  display: inline-block;
+  background: rgba(50, 50, 50, 0.8);
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: white;
+  text-align: center;
+}
+
+.edit-button,
+.delete-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid white;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}

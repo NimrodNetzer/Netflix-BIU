@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Movie Thumbnail -->
+            <ImageView
+                android:id="@+id/movie_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/netflix_background" />
+
+            <!-- Movie Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/movie_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Movie Title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/movie_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Year | Age | Duration | quality | selectedCategory"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="8dp" />
+
+                <Button
+                    android:id="@+id/play_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Play"
+                    android:textColor="@color/text_on_light"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginTop="15dp" />
+
+                <TextView
+                    android:id="@+id/movie_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Movie description goes here."
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="15dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="More Like This"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="25dp" />
+
+                <!-- RecyclerView for Recommended Movies -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recommendations_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Floating Action Buttons (For Admin) at the bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_edit"
+            android:tint="@android:color/white"
+            android:backgroundTint="@color/blue_edit"
+            android:layout_marginBottom="15dp"
+            android:visibility="gone"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_delete"
+            android:tint="@android:color/white"
+            android:backgroundTint="@color/button_delete"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</FrameLayout>

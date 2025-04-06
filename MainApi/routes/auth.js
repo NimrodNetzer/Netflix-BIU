@@ -1,15 +1,20 @@
 const {getUserById} = require('../services/user')
-
+const key = process.env.SECRET;
+const jwt = require('jsonwebtoken')
 const isAuthenticated = async (req, res, next) => {
-    const userId = req.headers['user-id']; // Check for the user ID in headers
-    if (!userId) {
-        return res.status(401).json({ message: 'Unauthorized: Missing user ID in headers.' });
+    if (req.headers.authorization) {
+        const token = req.headers.authorization.split(" ")[1];
+        try {
+            const data = jwt.verify(token, key);
+            req.userId = data.userId;
+            req.admin = data.admin;
+            return next()
+        } catch (err) {
+            return res.status(401).send("Invalid Token");
+        }
     }
-    const user = await getUserById(userId);
-    if(!user)
-        return res.status(404).json({message : "Unauthorized: Unknown user ID in headers."});
-    req.userId = userId;
-
-    next(); // Proceed to the next middleware or controller
+    else {
+        return res.status(403).send('Token required');
+    }
 };
 module.exports = isAuthenticated;

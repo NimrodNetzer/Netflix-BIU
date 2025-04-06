@@ -1,0 +1,399 @@
+/* ========== GLOBAL RESET & STYLES ========== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000; /* Default dark background */
+  color: white;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for background and text color */
+  padding-top: 60px;
+}
+
+/* ========== DARK MODE / LIGHT MODE ========== */
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --top-menu-bg: #141414;
+  --top-menu-text: #ffffff;
+  --button-bg: #e50914;
+  --button-text: #ffffff;
+}
+
+.dark-mode {
+  --bg-color: #141414; /* Dark background color */
+  --text-color: #ffffff;
+  --top-menu-bg: #000000;
+  --top-menu-text: #ffffff;
+  --button-bg: #ff0000;
+  --button-text: #ffffff;
+}
+
+.light-mode {
+  --bg-color: #ffffff; /* Light background color */
+  --text-color: #000000; /* Dark text in light mode */
+  --top-menu-bg: #ffffff; /* Top menu background in light mode */
+  --top-menu-text: #000000; /* Text color for top menu */
+  --button-bg: #007bff;
+  --button-text: #fff;
+}
+
+/* ========== Background color change on theme switch ========== */
+.light-mode {
+  background-color: #ffffff; /* Light background color */
+  color: #000000; /* Dark text in light mode */
+}
+
+.dark-mode {
+  background-color: #141414; /* Dark background color for dark mode */
+  color: white; /* White text for dark mode */
+}
+
+/* ========== FIXED TOP MENU ========== */
+
+.top-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--top-menu-bg);
+  color: var(--top-menu-text);
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-right: 20px;
+}
+
+/* ========== Modal Overlay & Positioning Fix ========== */
+
+.modal-overlay,
+.createmovie-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Optional (adjust overlay color depending on light/dark) */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+.createmovie-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+/* ========== LIGHT MODE FINAL STYLES ========== */
+
+.light-mode {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --top-menu-bg: #ffffff;
+  --top-menu-text: #000000;
+  --button-bg: #007bff;
+  --button-text: #ffffff;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.light-mode body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode .admin-container,
+.light-mode .admin-content,
+.light-mode .categories-container,
+.light-mode .category-box,
+.light-mode .movie-box,
+.light-mode .home,
+.light-mode .search-page {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode .category-box .category-promoted,
+.light-mode .movie-box span,
+.light-mode .category-box .form-input {
+  color: #333;
+}
+
+.light-mode .movie-box,
+.light-mode .category-box,
+.light-mode .movie-detail-box,
+.light-mode .movie-category {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.light-mode .modal-content,
+.light-mode .createmovie-modal-content,
+.light-mode .category-modal .modal-content {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode .modal-content h2,
+.light-mode .createmovie-modal-content h2 {
+  color: #e50914;
+}
+
+.light-mode .form-input,
+.light-mode .createmovie-form-input,
+.light-mode .createmovie-time-input,
+.light-mode .category-box .form-input {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.light-mode .modal-content::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.light-mode .modal-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border: 2px solid #ffffff;
+}
+
+.light-mode .add-button,
+.light-mode .submit-button,
+.light-mode .createmovie-submit-button,
+.light-mode .button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.light-mode .add-button:hover,
+.light-mode .submit-button:hover,
+.light-mode .createmovie-submit-button:hover,
+.light-mode .button:hover {
+  background-color: #0056b3;
+}
+
+.light-mode .close-button,
+.light-mode .createmovie-close-button,
+.light-mode .createmovie-remove-cast-button {
+  color: #000000;
+}
+
+.light-mode .header,
+.light-mode .top-menu,
+.light-mode .footer {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode .category-row,
+.light-mode .category-title,
+.light-mode .movie-title2 {
+  color: #000000;
+}
+
+.light-mode .category-row .movie-list::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.light-mode .category-row .movie-list::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 4px;
+}
+
+.light-mode .category-row .movie-list::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+.light-mode .edit-button,
+.light-mode .delete-button,
+.light-mode .play-button,
+.light-mode .info-button {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.light-mode .edit-button:hover,
+.light-mode .delete-button:hover,
+.light-mode .play-button:hover,
+.light-mode .info-button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .search-page .search-title,
+.light-mode .search-page .loading-message,
+.light-mode .search-page .error-message,
+.light-mode .search-page .no-results-message {
+  color: #000000;
+}
+
+.light-mode .toggle-label {
+  color: #000000;
+}
+
+/* 🎬 Movie Box Hover Behavior (Light Mode) */
+
+.light-mode .movie-hover-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.light-mode .movie-box:hover .movie-hover-overlay {
+  opacity: 1;
+}
+
+/* Ensure white text/buttons like dark mode */
+.light-mode .movie-hover-content,
+.light-mode .movie-title2,
+.light-mode .movie-hover-content span,
+.light-mode .movie-hover-content h3,
+.light-mode .movie-buttons button,
+.light-mode .play-button,
+.light-mode .info-button {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Optional: keep background image darkened on hover */
+.light-mode .movie-box:hover .default-image {
+  filter: brightness(0.6);
+}
+
+
+/* 🎬 Featured Video Text - Always White */
+.light-mode .video-overlay,
+.light-mode .featured-title,
+.light-mode .featured-description {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.light-mode .video-overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+
+.light-mode .login .login-container,
+.light-mode .signup .signup-container {
+  background-color: #f5f5f5;
+  color: #000000;
+}
+
+.light-mode .login form h2,
+.light-mode .signup form h2 {
+  color: #000000;
+}
+
+.light-mode .login .form-group input,
+.light-mode .signup .form-group input {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ccc;
+}
+
+.light-mode .login button,
+.light-mode .signup button {
+  background-color: #007bff;
+  color: white;
+}
+
+.light-mode .login button:hover,
+.light-mode .signup button:hover {
+  background-color: #0056b3;
+}
+
+.light-mode .login .additional-options a,
+.light-mode .signup .additional-options a {
+  color: #007bff;
+}
+
+.light-mode .login .additional-options a:hover,
+.light-mode .signup .additional-options a:hover {
+  color: #0056b3;
+}
+
+.light-mode .success-message {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.light-mode .error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.light-mode .delete-error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #721c24;
+}
+
+.light-mode .related-movie-title,
+.light-mode .movie-details-info,
+.light-mode .movie-meta strong {
+  color: #000000;
+}
+
+
+/* ========== DARK MODE ACTUAL STYLES (Optional) ========== */
+
+.dark-mode .modal-content,
+.dark-mode .createmovie-modal-content {
+  background-color: #2d2d2d; /* Dark background for modals */
+  color: #ffffff;
+}
+
+.dark-mode .createmovie-form-input,
+.dark-mode .createmovie-time-input {
+  background-color: #555555; /* Darker background for inputs */
+  color: #ffffff;
+}
+
+.dark-mode .createmovie-remove-cast-button,
+.dark-mode .createmovie-close-button {
+  color: #fff;
+}
+
+.dark-mode .createmovie-submit-button {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.dark-mode .createmovie-submit-button:hover {
+  background-color: #ff0000;
+}
+
+.dark-mode .modal-content::-webkit-scrollbar-track {
+  background: #333;
+}
+
+.dark-mode .modal-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border: 2px solid #333;
+}

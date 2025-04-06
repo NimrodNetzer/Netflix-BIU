@@ -1,0 +1,81 @@
+/* 🎬 Scoped Featured Video */
+.featured-video .featured-video {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Adjust height as needed */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* Indicates it's clickable */
+}
+
+.featured-video .featured-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video fills the section */
+}
+
+.featured-video .video-overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 50%;
+  text-align: left;
+}
+
+.featured-video .featured-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.featured-video .featured-description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* 🎬 Responsive Design */
+@media (max-width: 1024px) {
+  .featured-video .featured-video {
+      height: 350px;
+  }
+
+  .featured-video .video-overlay {
+      bottom: 20px;
+      left: 20px;
+      max-width: 70%;
+  }
+
+  .featured-video .featured-title {
+      font-size: 2rem;
+  }
+
+  .featured-video .featured-description {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-video .featured-video {
+      height: 250px;
+  }
+
+  .featured-video .video-overlay {
+      bottom: 10px;
+      left: 10px;
+      max-width: 90%;
+      padding: 10px;
+  }
+
+  .featured-video .featured-title {
+      font-size: 1.5rem;
+  }
+
+  .featured-video .featured-description {
+      font-size: 0.9rem;
+  }
+}

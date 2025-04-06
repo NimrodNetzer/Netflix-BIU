@@ -47,6 +47,7 @@ set(HEADERS
         src/Server/SimpleExecutor.cpp
         src/Server/ClientHandler.h
         src/Server/ClientHandler.cpp
+        src/Server/ThreadPoolExecutor.cpp
 )
 
 # Add the executable

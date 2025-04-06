@@ -9,12 +9,10 @@ const SocketClient = require('../utils/socketClient');
 
 const fetchRecommendations = async (userId, movieId) => {
     const socketClient = new SocketClient(serverIp, serverPort);
-    socketClient.connect();
+    await socketClient.connect();
     const request = `GET ${userId} ${movieId}\n`;
-    console.log(`Sending request to Recommendation System: ${request}`);
     const response = await socketClient.send(request);
     socketClient.disconnect();
-    console.log(`Received response from Recommendation System: ${response}`);
 
     if (response.startsWith('404')) {
         const error = new Error('User or Movie not found');
@@ -26,13 +24,13 @@ const fetchRecommendations = async (userId, movieId) => {
 };
 
 const addRecommendation = async (userId, movieId) => {
+    const socketClient = new SocketClient(serverIp, serverPort);
+
     try {
       await updateMongoDBMoviesList(userId, movieId);
    
-      const socketClient = new SocketClient(serverIp, serverPort);
-      socketClient.connect();
+      await socketClient.connect();
       const postResponse = await socketClient.send(`POST ${userId} ${movieId}\n`);
-      socketClient.disconnect();
       if (postResponse.startsWith('201')) {
         return 'Recommendation added successfully';
       }
@@ -44,12 +42,16 @@ const addRecommendation = async (userId, movieId) => {
         }
         throw new Error(`PATCH failed: ${patchResponse}`);
       }
-      
+
       throw new Error(`Unexpected response: ${postResponse}`); 
     } catch (error) {
       console.error('Recommendation System error:', error);
       error.status = 500;
       throw error;
+    }
+    finally {
+      socketClient.disconnect(); // Ensure the socket is disconnected
+
     }
 };
 
@@ -66,7 +68,6 @@ const updateMongoDBMoviesList = async (userId, movieId) => {
             moviesList: {
               $each: [{ movieId, watchedAt: new Date() }],
               $position: 0,   // Insert at the beginning
-              $slice: 20      // Limit the array to 20 items
             }
           }
         },
@@ -76,21 +77,22 @@ const updateMongoDBMoviesList = async (userId, movieId) => {
             throw new Error(`User with ID ${userId} not found`);
         }
 
-        console.log(`Movie ${movieId} successfully added to user ${userId}'s moviesList.`);
         return result;
     } catch (error) {
         console.error(`Error adding movie to user ${userId}:`, error.message);
         throw error;
     }
+   
 };
 
 
 const deleteWatchedMovie = async (movieId) => {
+    const socketClient = new SocketClient(serverIp, serverPort);
+
     try {
-      await User.updateMany({}, { $pull: { moviesList: { movieId } } });
       const users = await User.find({});
-      const socketClient = new SocketClient(serverIp, serverPort);
-      socketClient.connect();
+      await User.updateMany({}, { $pull: { moviesList: { movieId } } });
+      await socketClient.connect();
       for (const user of users) {
           try {
               await socketClient.send(`DELETE ${user._id} ${movieId}\n`);
@@ -98,14 +100,14 @@ const deleteWatchedMovie = async (movieId) => {
               console.error(`Failed to delete recommendation for user ${user._id}:`, err.message);
           }
       }
-      socketClient.disconnect();
-
       
       return `Movie ${movieId} deleted from ${users.length} users`;
     } catch (error) {
       console.error('Delete recommendation error:', error);
       error.status = 500;
       throw error;
+    } finally{
+      socketClient.disconnect();
     }
 };
    

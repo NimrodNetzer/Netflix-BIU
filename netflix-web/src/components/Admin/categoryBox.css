@@ -1,0 +1,158 @@
+/* 🎬 Scoped Category Box Styling */
+.category-box .category-box {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* ✅ Hover Effect */
+.category-box .category-box:hover {
+    transform: scale(1.05);
+}
+
+/* ✅ Category Name & Promoted Label */
+.category-box .category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.category-box .category-promoted {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+/* ✅ Edit & Delete Buttons */
+.category-box .category-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.category-box .edit-button,
+.category-box .delete-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+/* ✅ Hover Effect for Buttons */
+.category-box .edit-button:hover,
+.category-box .delete-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* ✅ Colors for Edit & Delete */
+.category-box .delete-button {
+    background: rgba(255, 0, 0, 0.2);
+}
+.category-box .delete-button:hover {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+.category-box .edit-button {
+    background: rgba(255, 255, 0, 0.2);
+}
+.category-box .edit-button:hover {
+    background: rgba(255, 255, 0, 0.5);
+}
+
+/* ✅ Edit Mode */
+.category-box .edit-mode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* ✅ Input Fields for Editing */
+.category-box .form-input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background: #282828;
+    color: white;
+    text-align: center;
+}
+
+/* ✅ Save & Cancel Buttons */
+.category-box .edit-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.category-box .save-button,
+.category-box .cancel-button {
+    width: 100px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.category-box .save-button {
+    background: #e50914;
+    color: white;
+}
+
+.category-box .save-button:hover {
+    background: #b20710;
+}
+
+.category-box .cancel-button {
+    background: gray;
+}
+
+.category-box .cancel-button:hover {
+    background: red;
+}
+
+/* ✅ Success Message (ONLY inside the category box for updates) */
+.category-box .success-message {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #666;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    animation: fadeOut 5s forwards;
+}
+
+/* 🎬 Animation for Auto-Hide Success Message */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+/* 🎬 Responsive Adjustments */
+@media (max-width: 768px) {
+    .category-box .category-box {
+        width: 90%;
+    }
+}

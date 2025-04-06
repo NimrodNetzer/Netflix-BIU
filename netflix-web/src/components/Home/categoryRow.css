@@ -1,0 +1,107 @@
+/* 🎬 Category Row Container */
+.category-row {
+  margin: 20px 0;
+  color: white;
+}
+
+/* 🎬 Category Title */
+.category-row .category-title {
+  margin-left: 20px;
+  font-size: 1.5rem;
+}
+
+/* 🎬 Row Container */
+.category-row .row-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Prevents elements from being clipped */
+}
+
+/* 🎬 Movie List */
+.category-row .movie-list {
+  display: flex;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  white-space: nowrap; /* Ensures movies stay in one line */
+}
+
+/* 🎬 Show scrollbar */
+.category-row .movie-list::-webkit-scrollbar {
+  height: 8px; /* Adjust scrollbar height */
+}
+
+.category-row .movie-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.category-row .movie-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.category-row .movie-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 🎬 Movie Box */
+.movie-box {
+  flex: 0 0 auto; /* Prevents movies from shrinking */
+  width: 280px; /* Ensure uniform width */
+  margin: 0 5px;
+}
+
+/* 🎬 Scroll Buttons */
+.category-row .scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.category-row .scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.category-row .scroll-button.left {
+  left: 10px;
+}
+
+.category-row .scroll-button.right {
+  right: 10px;
+}
+
+/* 🎬 Scrollbar Container */
+.category-row .scrollbar-container {
+  display: flex;
+  margin: 10px 20px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+/* 🎬 Scrollbar Segments */
+.category-row .scrollbar-segment {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.category-row .scrollbar-segment.active {
+  background-color: white;
+}

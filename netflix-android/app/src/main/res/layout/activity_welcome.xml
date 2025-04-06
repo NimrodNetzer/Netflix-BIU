@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.WelcomeActivity">
+
+    <!-- 📸 Background image -->
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/netflix_background" />
+
+    <!-- 🖤 Overlay for dim effect -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_overlay" />
+
+    <!-- 🔐 Sign In Button (Top Right) -->
+    <Button
+        android:id="@+id/button_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="35dp"
+        android:background="@android:color/transparent"
+        android:padding="16dp"
+        android:text="Sign In"
+        android:textColor="@color/text_on_image" />
+
+    <!-- 📣 Welcome Text & CTA -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="377dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="61dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unlimited movies,\nTV shows &amp; more"
+            android:textAlignment="center"
+            android:textColor="@color/text_on_image"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Watch anywhere. Cancel anytime."
+            android:textAlignment="center"
+            android:textColor="@color/text_on_image"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_get_started"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/button_red"
+            android:text="Get Started"
+            android:textColor="@color/text_on_button" />
+    </LinearLayout>
+</RelativeLayout>

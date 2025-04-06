@@ -1,0 +1,140 @@
+.hero {
+    position: relative; /* Required for pseudo-element positioning */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    background: url('../../assets/netflix-first-page-image.jpg') no-repeat center center; /* Center the background image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    color: white;
+    text-align: center;
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Dark overlay for readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; /* Place content above overlay */
+    z-index: 2;
+    text-align: center;
+    padding: 0 5%; /* Add padding for better responsiveness */
+}
+
+.hero-content h1 {
+    font-size: 3.2rem; /* Adaptable font size for larger screens */
+    margin-bottom: 2px;
+    font-weight: 850;
+}
+
+
+.hero-content h2 {
+    font-size: 1.7rem; /* Adjusted for readability on all screen sizes */
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    align-items: stretch; /* Align input and button to the same height */
+    justify-content: center; /* Center the input and button */
+    gap: 10px; /* Add spacing between input and button */
+    margin-top: 20px;
+}
+
+.input-container input {
+    padding: 10px; /* Match padding with button */
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 3px 0 0 3px; /* Rounded corners for left side */
+    width: 100%;
+    max-width: 300px; /* Prevent excessive stretching */
+    text-align: left;
+    outline: none;
+    margin-bottom: 0; /* Remove bottom margin to align with button */
+}
+
+.input-container button {
+    padding: 10px 20px; /* Match padding with input */
+    font-size: 22px; /* Match font size with input */
+    font-weight: 700; /* Match font weight with input */
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 0 3px 3px 0; /* Rounded corners for right side */
+    cursor: pointer;
+    width: auto; /* Let the button adapt to its content */
+    text-align: center;
+    height: auto; /* Ensures it adapts to the input's height */
+}
+.input-container button:hover {
+    background-color: #b40612; /* Darker red on hover */
+}
+
+.input-container input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Semi-transparent placeholder text */
+    font-weight: 400;
+}
+
+
+
+.sign-in-button {
+    position: absolute; /* Position it relative to the page */
+    top: 3%;          /* Distance from the top */
+    right: 7%;        /* Distance from the right */
+    padding: 12px 23px;  /* Reduced padding for a slimmer appearance */
+    background-color: #e50914; /* Red background like Netflix */
+    color: white;       /* White text */
+    font-size: 12px;    /* Font size */
+    font-weight: 600;   /* Bold font */
+    border: none;       /* Remove default border */
+    border-radius: 4px; /* Slight rounded corners */
+    cursor: pointer;    /* Show pointer on hover */
+    z-index: 1000;      /* Ensure it's above other elements */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    width: auto;        /* Let the button width adapt to its content */
+    min-width: 80px;    /* Set a minimum width to maintain a consistent size */
+    text-align: center; /* Center the text inside the button */
+}
+
+.sign-in-button:hover {
+    background-color: #b40612; /* Darker red on hover */
+}
+
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Adjust font size for smaller screens */
+    }
+
+    .hero-content h2 {
+        font-size: 1rem;
+    }
+
+    .input-container input {
+        width: 80%; /* Reduce width for better fit */
+        max-width: none; /* Remove max-width restriction */
+    }
+
+    .input-container button {
+        width: 80%; /* Match button width with input */
+        border-radius: 3px; /* Uniform rounding */
+    }
+
+    .sign-in-button {
+        font-size: 10px;
+    }
+}

@@ -7,6 +7,7 @@ exports.searchMovies = async (req, res) => {
             return res.status(400).json({ errors: ['Query parameter is required in the URL.'] });
         }
         const movies = await searchService.searchMovies(query); // Call the search service
+
         res.status(200).json(movies); // Return the search results
     } catch (error) {
         console.error('Error while searching for movies:', error);

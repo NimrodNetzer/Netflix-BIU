@@ -1,0 +1,38 @@
+<resources>
+    <!-- Brand Colors -->
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- App Theme Colors -->
+    <color name="background">#FFFFFF</color>
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#555555</color>
+    <color name="text_hint">#888888</color>
+    <color name="text_on_button">#FFFFFF</color>
+    <color name="text_on_light">#000000</color>
+    <color name="text_on_image">#FFFFFF</color>
+
+    <!-- Buttons -->
+    <color name="button_red">#E50914</color>
+    <color name="button_gray">#444444</color>
+    <color name="button_yellow">#FFD700</color>
+    <color name="button_orange">#FFA500</color>
+    <color name="button_delete">#D32F2F</color>
+
+    <!-- UI Elements -->
+    <color name="dropdown_background">#F5F5F5</color>
+    <color name="edittext_tint">#DDDDDD</color>
+    <color name="icon_tint">#000000</color>
+    <color name="category_background">#F0F0F0</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="seekbar_background">#CCCCCC</color>
+    <color name="image_placeholder">#EEEEEE</color>
+    <color name="background_overlay">#AA000000</color>
+    <color name="blue_edit">#1976D2</color> <!-- A clean, vibrant blue for edit button -->
+    <color name="search_bg"> #EEEEEE </color>
+</resources>

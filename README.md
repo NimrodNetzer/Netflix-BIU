@@ -1,81 +1,29 @@
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/287abe5b-9e8d-4be0-9e79-98ce6ce3edc4" alt="image_with_exercise3" width="500">
-</div>
-<br>
+# **Netflix-BIU Platform**
 
-# Recommendation System
+This project delivers a full-stack Netflix-style streaming platform, combining a React-based Web Application, an Android Application developed with Java/XML, and a Node.js + MongoDB backend. It supports dynamic movie browsing, user authentication, admin capabilities, and multi-platform access.
 
-This project integrates a recommendation system in C++ with a Node.js server and MongoDB database, providing functionalities for user management, authentication, dynamic database operations, and personalized movie suggestions based on viewing preferences. <br>
-The system operates with the following functionalities:
+The system operates with the following features:
 
-1. Server-Based Architecture: A robust Node.js server acts as the backbone of the system, handling all API requests and coordinating between the client and the recommendation system.
-
-2. MongoDB Database: Persistent storage is achieved using MongoDB, allowing scalable and efficient data management.
-
-3. Connection to Recommendation System: The server communicates with the recommendation system developed in Task 1 and 2 to fetch personalized movie recommendations.
-
-4. Dynamic Updates: Add, update, and delete users and movies dynamically through API calls.
-
-5. Authentication and Authorization: Users are authenticated through tokens for secure access to the system.
-
-The project follows SOLID principles and ensures scalability and extensibility.  <br>
-It supports a wide range of functionalities including user management, authentication, dynamic database operations, and personalized movie recommendations, making it a comprehensive platform for managing and exploring user-specific movie content.\
-<br>
-
-**The server exposes the following key endpoints:**
-### User Management
-
-- **`POST /api/users`**: Create a new user by submitting their details in JSON format.
-- **`GET /api/users/:id`**: Retrieve specific user details using their unique ID.
-
-### Movie Management
-
-- **`GET /api/movies`**: Retrieve a list of all movies, optionally filtered by categories or user preferences.
-- **`POST /api/movies`**: Add a new movie by submitting its details in JSON format.
-- **`GET /api/movies/:id/recommend`**: Fetch movie recommendations for a specific user based on their unique ID and viewing preferences.
-
-### Authentication
-
-- **`POST /api/tokens`**: Authenticate a user by submitting their credentials and receive an access token for secure API interaction.
-
-### Categories Management
-
-- **`GET /api/categories`**: Retrieve all available movie categories.
-- **`POST /api/categories`**: Add 
+### Key Features
+1. **Multi-Platform Architecture:** A fully functional React web app and Android native app communicate with a central server.
+2. **MongoDB Database**: Efficient, scalable storage for movies, users, and categories.
+3. **User Experience**: Users can register, log in, browse movies, view details, and stream content.
+4. **Admin Management**:  Admins can dynamically manage categories and movies.
+5. **Authentication and Authorization**: JWT-based secure authentication with role-based access control.
+6. **Dark/Light Mode**: Theme toggle supported across platforms.
+7. **MVVM Android Structure**: Android app follows the MVVM architecture with Room DB and LiveData.
 
 
-## Cd to RecommendationSystem
-```bash
-cd RecommendationSystem
-```
 
-## Build the Docker Image
-To build the Docker image, run the following command:
-```bash
-docker compose build
-```
+##  Wiki Documentation
 
-## Running the Container
+Refer to the following pages for setup, usage, and UI demos:
 
-### Run the server
-To create and run the container for the first time, execute:
-```bash
-docker compose up server
-```
+-  [Installation Guide](https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/installation.md)
+-  [Android App Example](https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/android_example.md)
+-  [Web App Example](https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/web_example.md)
 
-### Run the client
-To start the container after it has already been created, use:
-```bash
-docker compose run --rm client
-```
 
-## Running Tests
-To run the tests, use the following command:
-```bash
-docker compose run --rm test
-```
-This command will run the tests in a disposable container, which will be removed after the tests complete.
 
-# Run Example:
-![image](https://github.com/user-attachments/assets/74dc3698-b499-4e5d-9c72-a5450c970b94)
-
+### Final Notes
+This project demonstrates a full-stack media platform integrating mobile and web technologies with real-world user flows and secure backend communication. It was built as part of the Advanced Programming Systems course (Assignment 4) and reflects production-grade architecture using modern tools and best practices.

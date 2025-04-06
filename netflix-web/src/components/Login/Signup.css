@@ -1,0 +1,147 @@
+/* 🎬 Netflix-Inspired Scoped Signup Styles */
+.signup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: url('../../assets/netflix-first-page-image.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.signup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+/* 🎬 Signup Container */
+.signup .signup-container {
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 🎬 Form Header */
+.signup form h2 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 🎬 Form Group */
+.signup .form-group {
+  margin-bottom: 20px;
+}
+
+.signup .form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #b3b3b3;
+}
+
+.signup .form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+}
+
+/* 🎬 Submit Button */
+.signup button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  background: #e50914;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup button:hover {
+  background: #b40612;
+}
+
+/* 🎬 Additional Options */
+.signup .additional-options {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup .additional-options a {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.signup .additional-options a:hover {
+  color: #e50914;
+}
+
+/* 🎬 Profile Picture Selection */
+.signup .profile-picture-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.signup .profile-thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.signup .profile-thumbnail:hover {
+  border-color: red;
+}
+
+.signup .profile-thumbnail.selected {
+  border-color: green;
+}
+
+/* 🎬 Error and Success Messages */
+.signup .error-message.centered {
+  color: red;
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup .success-message {
+  color: green;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}

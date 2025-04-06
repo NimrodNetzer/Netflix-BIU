@@ -4,13 +4,17 @@ const recommendationService = require('../services/recommendation')
 // Create a new movie
 const createMovieController = async (req, res) => {
     try {
-        const { name, description, releaseDate } = req.body;
-
+        const movieData = JSON.parse(req.body.data);
+        const image = req.files.image ? req.files.image[0].path : null;
+        const video = req.files.video ? req.files.video[0].path : null;
+        const { name, description, releaseDate } = movieData;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
         if (!name || !description || !releaseDate) {
             return res.status(400).json({ message: 'Missing required fields: name, description, or releaseDate' });
         }
 
-        const movieData = req.body;
+        movieData.picture = image;
+        movieData.video = video;
         const newMovie = await createMovie(movieData);
         res.status(201).location(`/api/movies/${newMovie._id}`).send();
     } catch (error) {
@@ -20,9 +24,10 @@ const createMovieController = async (req, res) => {
 
 const getMovies = async (req, res) => {
     try {
-        const movies = await getMoviesByPromotedCategories(req.headers['user-id']);
+        const movies = await getMoviesByPromotedCategories(req.userId);
         res.status(200).json({ movies });
     } catch (error) {
+
         res.status(400).json({ message: error.message || 'An error occurred while creating the movie' });
     }
 };
@@ -54,7 +59,6 @@ const deleteMovie = async (req, res) => {
         }
 
         const message = await recommendationService.deleteWatchedMovie(id);
-        console.log(message);
 
         res.status(204).send();
     } catch (error) {
@@ -65,9 +69,24 @@ const deleteMovie = async (req, res) => {
 // Update a movie by ID
 const updateMovie = async (req, res) => {
     try {
-        const { id } = req.params;
-        const movieUpdates = req.body;
+        // Parse movieUpdates from req.body.data (if available) or use req.body directly
+        const movieUpdates = JSON.parse(req.body.data);
 
+        // Retrieve file paths for image and video from multer
+        const image = req.files && req.files.image ? req.files.image[0].path : null;
+        const video = req.files && req.files.video ? req.files.video[0].path : null;
+
+        // Add file paths to the update data if they exist
+        if (image) {
+            movieUpdates.picture = image;
+        }
+        if (video) {
+            movieUpdates.video = video;
+        }
+
+        const { id } = req.params;
+
+        // Call the replaceMovieById service to update the movie
         const updatedMovie = await replaceMovieById(id, movieUpdates);
 
         if (!updatedMovie) {
@@ -80,11 +99,11 @@ const updateMovie = async (req, res) => {
     }
 };
 
+
 // Fetch recommended movies
 const getRecommendations = async (req, res) => {
-    console.log('Loading recommendations');
     const { id } = req.params;
-    const userId = req.headers['user-id'];
+    const userId = req.userId;
 
     if (!userId) {
         return res.status(400).json({ error: 'User ID is required' });
@@ -105,9 +124,8 @@ const getRecommendations = async (req, res) => {
 // Add a recommendation
 
 const addRecommendation = async (req, res) => {
-    console.log('Adding recommendation');
     const { id } = req.params;
-    const userId = req.headers['user-id'];
+    const userId = req.userId;
 
     if (!userId) {
         return res.status(400).json({ error: 'User ID is required' });

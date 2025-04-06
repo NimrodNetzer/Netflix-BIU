@@ -10,7 +10,7 @@ post::post(IMenu& menu) : m_menu(menu) {}
 void post::execute(std::string s) {
     // Create an 'add' object
     add addCommand;
-
+    std::cout << s << std::endl;
     // Validate the input string
     try {
         addCommand.validateString(s); // This handles validation of the input

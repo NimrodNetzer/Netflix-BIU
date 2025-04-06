@@ -11,13 +11,13 @@ const tokenService = require('../services/token');
 const authenticateUser = async (req, res) => {
     try {
         const { email, password } = req.body; // Extract email and password from request
-        const user = await tokenService.authenticateUser(email, password); // Authenticate the user
+        const token = await tokenService.authenticateUser(email, password); // Authenticate the user
 
-        if (!user) {
+        if (!token) {
             return res.status(401).json({ errors: ['Invalid email or password'] }); // Handle invalid credentials
         }
 
-        res.status(200).json({ userId: user._id }); // Respond with the authenticated user's ID
+        res.status(200).json({token }); // Respond with the authenticated user's ID
     } catch (error) {
         res.status(500).json({ errors: [error.message] }); // Handle server errors
     }

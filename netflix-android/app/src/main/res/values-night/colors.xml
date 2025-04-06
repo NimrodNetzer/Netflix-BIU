@@ -1,0 +1,30 @@
+<resources>
+    <!-- App Theme Colors -->
+    <color name="background">#121212</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#CCCCCC</color>
+    <color name="text_hint">#AAAAAA</color>
+    <color name="text_on_button">#FFFFFF</color>
+    <color name="text_on_light">#000000</color>
+    <color name="text_on_image">#FFFFFF</color>
+
+    <!-- Buttons -->
+    <color name="button_red">#E50914</color>
+    <color name="button_gray">#333333</color>
+    <color name="button_yellow">#FFD700</color>
+    <color name="button_orange">#FFA500</color>
+    <color name="button_delete">#D32F2F</color>
+
+    <!-- UI Elements -->
+    <color name="dropdown_background">#2A2A2A</color>
+    <color name="edittext_tint">#444444</color>
+    <color name="icon_tint">#FFFFFF</color>
+    <color name="category_background">#1E1E1E</color>
+    <color name="card_background">#1A1A1A</color>
+    <color name="seekbar_background">#444444</color>
+    <color name="image_placeholder">#333333</color>
+    <color name="background_overlay">#AA000000</color>
+    <color name="blue_edit">#2196F3</color> <!-- Slightly brighter for dark mode visibility -->
+    <color name="search_bg"> #444444 </color>
+
+</resources>

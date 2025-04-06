@@ -1,0 +1,101 @@
+/* 🎬 Netflix-Inspired Scoped Login Styles */
+.login {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: url('../../assets/netflix-first-page-image.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative; /* Needed for overlay */
+}
+
+.login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+/* 🎬 Login Container */
+.login .login-container {
+  z-index: 2;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 🎬 Form Header */
+.login form h2 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 🎬 Form Group */
+.login .form-group {
+  margin-bottom: 20px;
+}
+
+.login .form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #b3b3b3;
+}
+
+.login .form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+}
+
+/* 🎬 Submit Button */
+.login button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  background: #e50914;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login button:hover {
+  background: #f40612;
+}
+
+/* 🎬 Additional Options */
+.login .additional-options {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login .additional-options a {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login .additional-options a:hover {
+  color: #e50914;
+}

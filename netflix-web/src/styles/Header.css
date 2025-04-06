@@ -1,0 +1,39 @@
+/* 📌 Scoped Header Styles */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.header-container .logo {
+  height: 40px;
+}
+
+.header-container .header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-container .language-select {
+  margin-right: 15px;
+  padding: 5px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+.header-container .sign-in {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header-container .sign-in:hover {
+  background-color: #b40612;
+}

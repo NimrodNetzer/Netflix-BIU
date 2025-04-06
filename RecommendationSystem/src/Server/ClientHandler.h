@@ -15,6 +15,7 @@ class ClientHandler : public Runnable{
 public:
     ClientHandler(int clientSocket) : clientSocket(clientSocket){}
     void run() override;
+
 private:
     int clientSocket;
     std::map<std::string, ICommand*> initializeCommands(IMenu& menu);

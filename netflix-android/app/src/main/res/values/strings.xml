@@ -1,0 +1,38 @@
+<resources>
+    <!-- ✅ App Name -->
+    <string name="app_name">netflix-android</string>
+
+    <!-- ✅ Buttons and Navigation -->
+    <string name="back_button">Back</string>
+    <string name="exit">Exit</string>
+    <string name="admin">Admin</string>
+    <string name="admin_panel">Admin</string>
+    <string name="search_button">Search</string>
+    <string name="search_hint">Search movies...</string>
+
+    <!-- ✅ Icons and Labels -->
+    <string name="netflix_logo">Netflix</string>
+    <string name="search_icon">Search</string>
+    <string name="theme_moon">🌙</string>
+    <string name="theme_sun">🌞</string>
+
+    <!-- ✅ Video Controls -->
+    <string name="back">Back</string>
+    <string name="rewind_10">Rewind 10 seconds</string>
+    <string name="forward_10">Forward 10 seconds</string>
+    <string name="play_pause">Play or Pause</string>
+
+    <!-- ✅ Spinner Options -->
+    <string-array name="quality_options">
+        <item>HD</item>
+        <item>SD</item>
+        <item>4K</item>
+    </string-array>
+
+    <string-array name="language_options">
+        <item>English</item>
+        <item>Spanish</item>
+        <item>French</item>
+        <item>Hebrew</item>
+    </string-array>
+</resources>

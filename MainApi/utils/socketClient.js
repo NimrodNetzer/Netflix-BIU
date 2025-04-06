@@ -23,7 +23,6 @@ class SocketClient {
         this.client = new net.Socket();
   
         this.client.on('connect', () => {
-          console.log(`Connected to Recommendation System at ${this.serverIp}:${this.serverPort}`);
           this.isConnected = true;
           resolve();
         });
@@ -35,11 +34,9 @@ class SocketClient {
         });
   
         this.client.on('close', () => {
-          console.log('Connection closed');
           this.isConnected = false;
           this.connectPromise = null;
         });
-        console.log(this.serverPort, this.serverIp);
         this.client.connect(this.serverPort, this.serverIp);
       });
   

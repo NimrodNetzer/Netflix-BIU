@@ -1,0 +1,108 @@
+package com.example.netflix_android.Entities;
+
+import com.google.gson.annotations.SerializedName;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+public class SearchResult {
+
+    @SerializedName("_id")
+    private String id;
+
+    private String name;
+    private String picture;
+    private String video;
+    private String description;
+    private int age;
+    private String time;
+
+    @SerializedName("releaseDate")
+    private Date releaseDate;
+
+    private String quality;
+
+    @SerializedName("categories")
+    private List<String> categoryIds; // Store category IDs as Strings
+
+    @SerializedName("cast")
+    private List<CastMember> cast; // List of cast members
+
+    @SerializedName("properties")
+    private Map<String, String> properties; // Key-value movie properties
+
+    private String author;
+
+    @SerializedName("createdAt")
+    private Date createdAt;
+
+    @SerializedName("updatedAt")
+    private Date updatedAt;
+
+    public SearchResult(String id, String name, String picture, String video, String description, int age,
+                        String time, Date releaseDate, String quality, List<String> categoryIds,
+                        List<CastMember> cast, Map<String, String> properties, String author,
+                        Date createdAt, Date updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.picture = picture;
+        this.video = video;
+        this.description = description;
+        this.age = age;
+        this.time = time;
+        this.releaseDate = releaseDate;
+        this.quality = quality;
+        this.categoryIds = categoryIds;
+        this.cast = cast;
+        this.properties = properties;
+        this.author = author;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    // Getters and Setters
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getPicture() { return picture; }
+    public void setPicture(String picture) { this.picture = picture; }
+
+    public String getVideo() { return video; }
+    public void setVideo(String video) { this.video = video; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+
+    public String getTime() { return time; }
+    public void setTime(String time) { this.time = time; }
+
+    public Date getReleaseDate() { return releaseDate; }
+    public void setReleaseDate(Date releaseDate) { this.releaseDate = releaseDate; }
+
+    public String getQuality() { return quality; }
+    public void setQuality(String quality) { this.quality = quality; }
+
+    public List<String> getCategoryIds() { return categoryIds; }
+    public void setCategoryIds(List<String> categoryIds) { this.categoryIds = categoryIds; }
+
+    public List<CastMember> getCast() { return cast; }
+    public void setCast(List<CastMember> cast) { this.cast = cast; }
+
+    public Map<String, String> getProperties() { return properties; }
+    public void setProperties(Map<String, String> properties) { this.properties = properties; }
+
+    public String getAuthor() { return author; }
+    public void setAuthor(String author) { this.author = author; }
+
+    public Date getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
+
+    public Date getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(Date updatedAt) { this.updatedAt = updatedAt; }
+}

@@ -1,0 +1,294 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ensure the dark overlay spans the full screen width */
+  height: 100vh; /* Ensure the dark overlay spans the full screen height */
+  background-color: rgba(0, 0, 0, 0.85); /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #181818;
+  color: white;
+  width: 50vw; /* Modal content width remains at 50vw */
+  max-height: 90%; /* Allow for smaller modal */
+  border-radius: 10px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  scrollbar-width: thin; /* Firefox: Use thin scrollbar */
+  scrollbar-color: #888 #181818; /* Firefox: scrollbar and track colors */
+}
+
+
+/* For Webkit-based browsers (Chrome, Edge, etc.) */
+.modal-content::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #181818; /* Track color */
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar color */
+  border-radius: 10px; /* Rounded scrollbar */
+  border: 2px solid #181818; /* Adds spacing around scrollbar */
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker color on hover */
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #b3b3b3;
+}
+
+.movie-banner {
+  position: relative;
+  width: 100%;
+  height: auto; /* Automatically adjusts height based on the image */
+  background-size: contain; /* Ensure the entire image is shown */
+  background-position: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.movie-banner::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Covers the lower half */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); /* Dark fade */
+  z-index: 2;
+}
+
+.movie-banner-image {
+  width: 100%;
+  height: auto; /* Automatically adjusts to maintain aspect ratio */
+  object-fit: contain; /* Ensures the entire image is displayed without being cut */
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 4px 10px rgba(187, 4, 4, 0.9); /* Adds a soft shadow around the image */
+  filter: brightness(0.95); /* Darkens the whole image */
+}
+
+
+.movie-title {
+  position: absolute;
+  top: 20%; /* Move title up */
+  left: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  z-index: 3;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add text shadow for better visibility */
+}
+
+.action-buttons {
+  position: absolute;
+  top: 35%; /* Position buttons below the title */
+  left: 20px;
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+}
+
+.play-button {
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.related-movie-item {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  border-radius: 10px; /* Smooth edges */
+}
+
+.related-movie-item:hover {
+  transform: scale(1.05);
+}
+
+.related-movie-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.related-movie-item:hover::before {
+  opacity: 1; /* Darken the image on hover */
+}
+
+/* Circular play button with white border */
+.related-movie-item::after {
+  content: "▶";
+  font-size: 1.8rem; /* Adjusted size */
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Transparent background with white border */
+  background: rgba(0, 0, 0, 0.3);
+  width: 50px; /* Increase size */
+  height: 50px; /* Ensure circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  
+  /* White circular border */
+  border: 2px solid rgba(255, 255, 255, 0.8);
+
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.related-movie-item:hover::after {
+  top: 40%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Movie duration in the top-right corner */
+.related-movie-time {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.related-movie-item:hover .related-movie-time {
+  opacity: 1;
+}
+
+
+.play-button:hover {
+  background-color: #e6e6e6;
+}
+
+.circle-button {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.circle-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.movie-details-container {
+  padding: 20px;
+}
+
+.movie-description {
+  margin-top: 20px; /* Add margin to create space from buttons */
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #d1d1d1;
+}
+
+.movie-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.movie-details-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.movie-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #b3b3b3;
+}
+
+.movie-meta strong {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.related-movies {
+  margin-top: 20px;
+}
+
+.related-movie-list {
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  gap: 20px; /* Space between rows and columns */
+  margin-top: 20px;
+}
+
+.related-movie-item {
+  text-align: center;
+}
+
+.related-movie-poster {
+  width: 100%; /* Make the image responsive */
+  max-width: 150px; /* Limit the image size */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.related-movie-title {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ffffff;
+}

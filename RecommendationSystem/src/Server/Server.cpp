@@ -19,12 +19,12 @@
 #include <netinet/in.h>
 #endif
 #define PORT 8080
-#define MAX_CLIENTS 3
+#define MAX_CLIENTS 10
 #define BUFFER_SIZE 1024
 
 void Server::handleClient(int client_sock) {
     ClientHandler* handler = new ClientHandler(client_sock);
-    executor.execute(handler);
+    executor->execute(handler);
 }
 
 

@@ -1,0 +1,89 @@
+/* Home Page Styles */
+.home {
+  background-color: #141414;
+  color: white;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Featured Video Section */
+.featured-video {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Adjust as needed */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video fills the section */
+}
+
+/* Overlay Content */
+.video-overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 50%;
+  text-align: left;
+}
+
+.featured-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.featured-description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .featured-video {
+    height: 350px;
+  }
+
+  .video-overlay {
+    bottom: 20px;
+    left: 20px;
+    max-width: 70%;
+  }
+
+  .featured-title {
+    font-size: 2rem;
+  }
+
+  .featured-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-video {
+    height: 250px;
+  }
+
+  .video-overlay {
+    bottom: 10px;
+    left: 10px;
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .featured-title {
+    font-size: 1.5rem;
+  }
+
+  .featured-description {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Netflix Logo -->
+    <ImageView
+        android:layout_width="198dp"
+        android:layout_height="117dp"
+        android:layout_marginBottom="40dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/netflix" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_bg"
+        android:fontFamily="sans-serif-medium"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:textSize="16sp" />
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/input_bg"
+        android:padding="12dp"
+        android:hint="Password"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"/>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_bg"
+        android:text="Sign In"
+        android:textColor="@color/text_on_button"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:padding="12dp"/>
+
+    <!-- Sign Up Link -->
+    <TextView
+        android:id="@+id/signup_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New to Netflix? Sign up now."
+        android:textColor="@color/text_hint"
+        android:textSize="14sp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-medium"
+        android:clickable="true"
+        android:focusable="true"/>
+</LinearLayout>

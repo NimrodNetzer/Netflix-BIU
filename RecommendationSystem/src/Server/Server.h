@@ -10,18 +10,18 @@
 #include "Menus/IMenu.h"
 #include "Menus/SocketMenu.h"
 #include "SimpleExecutor.h"
-
-#
+#include "ThreadPoolExecutor.h"
 
 
 class Server {
     public:
+      Server(Executor* executor) : executor(executor) {}
       void run();
       void handleClient(int client_sock);
 
 private:
     std::map<std::string, ICommand*> initializeCommands(IMenu& menu);
-    SimpleExecutor executor;
+    Executor* executor;
 };
 
 
