@@ -3,7 +3,9 @@
 ## 1. Download the Repository
 
 Clone or download the repository to your local machine.
-
+```
+git clone https://github.com/idorozin/Netflix-BIU.git
+```
 ## 2. Open the Repo in Your Terminal
 
 Navigate into the root directory of the project.
