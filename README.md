@@ -19,9 +19,9 @@ The system operates with the following features:
 
 Refer to the following pages for setup, usage, and UI demos:
 
--  [Installation Guide](https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/installation.md)
--  [Android App Example](https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/android_example.md)
--  [Web App Example](https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/web_example.md)
+-  [Installation Guide]([https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/installation.md](https://github.com/idorozin/Netflix-BIU/blob/main/wiki/installation.md))
+-  [Android App Example]([https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/android_example.md](https://github.com/idorozin/Netflix-BIU/blob/main/wiki/web_example.md))
+-  [Web App Example]([https://github.com/idorozin/Netflix-BIU/blob/ex4/wiki/web_example.md](https://github.com/idorozin/Netflix-BIU/blob/main/wiki/android_example.md))
 
 
 
