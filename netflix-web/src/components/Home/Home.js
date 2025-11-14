@@ -23,7 +23,9 @@ function Home({ isAdmin = false }) {  // Accept isAdmin prop, default to false
         }
 
         const data = await response.json();
-        setCategories(data.movies);
+        // Safely set categories, defaulting to an empty array [] if data.movies is null or undefined
+        // This prevents the app from crashing on the next line (categories.map)
+        setCategories(data.movies || []);
 
         if (!isAdmin && data.movies.length > 0 && data.movies[0].movies.length > 0) {
           setFeaturedMovie(data.movies[0].movies[0]); // Only set featured movie when not admin
