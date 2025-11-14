@@ -10,7 +10,7 @@ function Home({ isAdmin = false }) {  // Accept isAdmin prop, default to false
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/movies/random?type=movie`, {
+        const response = await fetch(`${API_URL}/api/movies`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
