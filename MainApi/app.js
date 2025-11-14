@@ -10,7 +10,9 @@ const users = require('./routes/user');
 const tokens = require('./routes/token');
 const path = require('path');
 const fs = require('fs');
-require('custom-env').env(process.env.NODE_ENV, './config');
+if (!process.env.VERCEL) {
+    require('custom-env').env(process.env.NODE_ENV, './config');
+}
 
 mongoose.connect(process.env.CONNECTION_STRING)
   .then(() => console.log('Connected to MongoDB'))

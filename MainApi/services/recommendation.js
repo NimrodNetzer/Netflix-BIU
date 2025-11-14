@@ -2,7 +2,9 @@
 const socketClient = require('../utils/socketClient'); // Import socket client for communication with Recommendation System
 const User = require('../models/user');
 const mongoose = require('mongoose'); 
-require('custom-env').env(process.env.NODE_ENV, './config');
+if (!process.env.VERCEL) {
+    require('custom-env').env(process.env.NODE_ENV, './config');
+}
 const serverIp = process.env.RECOMMENDATION_IP;
 const serverPort = process.env.RECOMMENDATION_PORT;
 const SocketClient = require('../utils/socketClient');
