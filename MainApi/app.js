@@ -52,15 +52,15 @@ app.use('/api/movies/search', searchRoutes)
 //     fs.mkdirSync(uploadsDir, { recursive: true });
 // }
 
-// app.use('/public/uploads', express.static(path.join(__dirname, 'public/uploads')));
-// Serve static files from React build
-const publicPath = path.join(__dirname, 'public');
-app.use(express.static(publicPath));
+// // app.use('/public/uploads', express.static(path.join(__dirname, 'public/uploads')));
+// // Serve static files from React build
+// const publicPath = path.join(__dirname, 'public');
+// app.use(express.static(publicPath));
 
-// Serve React frontend
-app.get('*', (req, res) => {
-    res.sendFile(path.join(publicPath, 'index.html'));
-});
+// // Serve React frontend
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(publicPath, 'index.html'));
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
