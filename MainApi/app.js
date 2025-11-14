@@ -36,12 +36,12 @@ app.use('/api/movies', movieRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/movies/search', searchRoutes)
 
-const uploadsDir = path.join(__dirname, 'public/uploads');
-if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir, { recursive: true });
-}
+// const uploadsDir = path.join(__dirname, 'public/uploads');
+// if (!fs.existsSync(uploadsDir)) {
+//     fs.mkdirSync(uploadsDir, { recursive: true });
+// }
 
-app.use('/public/uploads', express.static(path.join(__dirname, 'public/uploads')));
+// app.use('/public/uploads', express.static(path.join(__dirname, 'public/uploads')));
 // Serve static files from React build
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
