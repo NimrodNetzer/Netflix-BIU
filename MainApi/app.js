@@ -14,9 +14,20 @@ if (!process.env.VERCEL) {
     require('custom-env').env(process.env.NODE_ENV, './config');
 }
 
-mongoose.connect(process.env.CONNECTION_STRING)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+// Enhanced Connection Code
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.CONNECTION_STRING, {
+      serverSelectionTimeoutMS: 5000 // Timeout after 5s instead of buffering
+    });
+    console.log('Connected to MongoDB');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+    process.exit(1); // Stop the app if DB fails
+  }
+};
+
+connectDB(); // Call the function
 
 // Initialize the Express application
 const app = express();
