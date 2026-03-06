@@ -34,6 +34,7 @@ function SearchPage() {
       setSearchTerm(query || '');
       setMovies([]); // Clear results on new search
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   // ✅ Redirect safely only when user **stops typing**

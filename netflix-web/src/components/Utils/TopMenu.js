@@ -13,7 +13,8 @@ function TopMenu({ darkMode, setDarkMode }) {
   const inputRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const isLoggedIn = !!localStorage.getItem("jwt");
+  const jwtToken = localStorage.getItem("jwt");
+  const isLoggedIn = !!jwtToken;
 
   // 👇 Pages where we hide search bar & other navs
   const isRestrictedPage = ["/", "/login", "/signup"].includes(location.pathname);
@@ -35,7 +36,7 @@ function TopMenu({ darkMode, setDarkMode }) {
     } else {
       setIsAdmin(false);
     }
-  }, [localStorage.getItem("jwt")]);
+  }, [jwtToken]);
 
   const handleSearchChange = (event) => {
     const value = event.target.value;
@@ -89,6 +90,7 @@ function TopMenu({ darkMode, setDarkMode }) {
       <nav className="top-menu">
         <ul>
           <li className="netflix-logo">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#" onClick={(e) => { e.preventDefault(); isLoggedIn ? navigate("/home") : navigate("/login"); }}>
               <img src="../assets/LOGO.jpg" alt="Netflix Logo" className="logo-img" />
             </a>
@@ -97,8 +99,10 @@ function TopMenu({ darkMode, setDarkMode }) {
           {!isRestrictedPage && (
             <>
               <li className={isActive("/home") ? "active" : ""}>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href="#" onClick={(e) => { e.preventDefault(); navigate("/home"); }}>Movies</a>
               </li>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <li><a href="#" onClick={handleSignOut}>Exit Netflix</a></li>
               {isAdmin && <li className={isActive("/admin") ? "active" : ""}><a href="/admin">Admin</a></li>}
             </>

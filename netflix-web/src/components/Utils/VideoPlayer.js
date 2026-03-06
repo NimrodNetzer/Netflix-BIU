@@ -253,18 +253,6 @@ const VideoPlayer = ({
   }, [play]);
   
 
-  // Function to exit fullscreen and close the VideoPlayer
-  const handleExitFullscreen = () => {
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-    } else if (document.webkitFullscreenElement) { /* Safari */
-      document.webkitExitFullscreen();
-    } else if (document.msFullscreenElement) { /* IE11 */
-      document.msExitFullscreen();
-    }
-    // onClose will be called via fullscreenchange event listener
-  };
-
   return (
     <div
       ref={containerRef}

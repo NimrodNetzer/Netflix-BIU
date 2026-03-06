@@ -101,7 +101,7 @@ const Signup = () => {
                     <button type="submit" disabled={isLoading}>{isLoading ? 'Signing up...' : 'Signup'}</button>
 
                     <div className="additional-options">
-                        <a onClick={() => navigate('/login')}>Already have an account? Sign in</a>
+                        <button type="button" onClick={() => navigate('/login')} style={{background:'none',border:'none',color:'inherit',cursor:'pointer',padding:0,font:'inherit'}}>Already have an account? Sign in</button>
                     </div>
                 </form>
             </div>
