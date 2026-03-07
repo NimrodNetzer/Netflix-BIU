@@ -1,49 +1,28 @@
 const multer = require('multer');
-const path = require('path');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('cloudinary').v2;
 
-// Configure Multer storage
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './public/uploads/');
-    },
-    filename: function (req, file, cb) {
-        let ext = path.extname(file.originalname);
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
-        // If no extension, determine it from mimetype
-        if (!ext) {
-            if (file.mimetype.startsWith('image/')) {
-                ext = '.png';
-            } else if (file.mimetype.startsWith('video/')) {
-                ext = '.mp4';
-            } else {
-                ext = ''; // or a default like '.bin' if needed
-            }
-        }
-
-        cb(null, Date.now() + ext);
+const storage = new CloudinaryStorage({
+    cloudinary,
+    params: (_req, file) => {
+        const isVideo = file.mimetype.startsWith('video/');
+        return {
+            folder: isVideo ? 'netflix/videos' : 'netflix/images',
+            resource_type: isVideo ? 'video' : 'image',
+            allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'mp4', 'mov', 'avi'],
+        };
     },
 });
 
-
-// File filter to allow only specific types
-const fileFilter = (req, file, cb) => {
-    cb(null,true);
-    return;
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-        cb(null, true);
-    } else {
-        cb(new Error('Invalid file type. Only JPEG and PNG are allowed.'), false);
-    }
-};
-
-// Initialize Multer
 const upload = multer({
-    storage: storage,
-    limits: { fileSize: 1024 * 1024 * 500 }, // 5 MB limit
-    fileFilter: fileFilter,
+    storage,
+    limits: { fileSize: 1024 * 1024 * 500 }, // 500 MB
 });
 
-// Export the middleware
-module.exports = {
-    upload,
-};
+module.exports = { upload };

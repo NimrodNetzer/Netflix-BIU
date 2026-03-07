@@ -34,7 +34,12 @@ const app = express();
 
 // Enable CORS to allow requests from other origins
 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+app.options('*', cors());
 
 // Use body-parser to parse URL-encoded bodies and JSON
 app.use(bodyParser.urlencoded({ extended: true }));
