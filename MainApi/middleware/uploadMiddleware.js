@@ -14,8 +14,7 @@ const storage = new CloudinaryStorage({
         const isVideo = file.mimetype.startsWith('video/');
         return {
             folder: isVideo ? 'netflix/videos' : 'netflix/images',
-            resource_type: isVideo ? 'video' : 'image',
-            allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'mp4', 'mov', 'avi'],
+            resource_type: 'auto',
         };
     },
 });

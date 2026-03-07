@@ -1,4 +1,8 @@
 
+if (!process.env.VERCEL) {
+    require('custom-env').env(process.env.NODE_ENV, './config');
+}
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -8,11 +12,6 @@ const categoryRoutes = require('./routes/category');
 const searchRoutes = require('./routes/search');
 const users = require('./routes/user');
 const tokens = require('./routes/token');
-const path = require('path');
-const fs = require('fs');
-if (!process.env.VERCEL) {
-    require('custom-env').env(process.env.NODE_ENV, './config');
-}
 
 // Enhanced Connection Code
 const connectDB = async () => {
@@ -66,6 +65,11 @@ app.use('/api/movies/search', searchRoutes)
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(publicPath, 'index.html'));
 // });
+
+app.use((err, req, res, next) => {
+    console.error('Unhandled error:', err.message || JSON.stringify(err));
+    res.status(err.status || err.http_code || 500).json({ message: err.message || 'Internal Server Error' });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
