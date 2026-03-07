@@ -21,7 +21,7 @@ function FeaturedVideo({ movie }) {
   return (
     <div className="featured-video">
       <video
-        src={`${API_URL}/${movie.video}`}
+        src={movie.video}
         type="video/mp4"
         autoPlay
         muted

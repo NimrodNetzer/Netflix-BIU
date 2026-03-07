@@ -108,7 +108,7 @@ function MovieBox({ movie, width, isAdmin = false }) {
   return (
     <div className="movie-box" style={{ width }}>
       <img
-        src={`${API_URL}/${movie.picture}`}
+        src={movie.picture}
         alt={movie.name}
         className="default-image"
       />

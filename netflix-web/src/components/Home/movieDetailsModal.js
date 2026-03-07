@@ -107,9 +107,9 @@ function MovieDetailsModal({ movie, isOpen, onClose, updateMovie, autoPlay }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={onClose}>✕</button>
         <div className="movie-banner" style={{ height: '420px' }}>
-          <img 
-            src={`${API_URL}/${movie.picture}`} 
-            alt={movie.name} 
+          <img
+            src={movie.picture}
+            alt={movie.name}
             className="movie-banner-image"
             style={{ height: '100%', objectFit: 'cover' }}
           />
@@ -145,7 +145,7 @@ function MovieDetailsModal({ movie, isOpen, onClose, updateMovie, autoPlay }) {
                     style={{ cursor: 'pointer' }} 
                   >
                     <img
-                      src={`${API_URL}/${relatedMovie.picture}`}
+                      src={relatedMovie.picture}
                       alt={relatedMovie.name}
                       className="related-movie-poster"
                     />
@@ -163,7 +163,7 @@ function MovieDetailsModal({ movie, isOpen, onClose, updateMovie, autoPlay }) {
       {isVideoOpen && (
         <div className="video-overlay" onClick={(e) => e.stopPropagation()}>
           <VideoPlayer
-            videoUrl={`${API_URL}/${movie.video}`}
+            videoUrl={movie.video}
             videoName={movie.name}
             play={true}
             startFullscreen={true}
