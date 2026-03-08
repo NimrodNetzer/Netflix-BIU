@@ -195,8 +195,8 @@ public class MovieDetailActivity extends AppCompatActivity {
 
                 movieViewModel.getMovieById(updatedMovieId).observe(this, movie -> {
                     if (movie != null) {
-                        String pictureUrl = Constants.BASE_URL + movie.getPicture().replace("\\", "/");
-                        videoUrl = Constants.BASE_URL + movie.getVideo().replace("\\", "/");
+                        String pictureUrl = movie.getPicture().replace("\\", "/");
+                        videoUrl = movie.getVideo().replace("\\", "/");
                         movieTitle.setText(movie.getName());
                         movieDetails.setText(movie.getTime() + " | Age " + movie.getAge() + " | " + movie.getQuality());
                         movieDescription.setText(movie.getDescription());

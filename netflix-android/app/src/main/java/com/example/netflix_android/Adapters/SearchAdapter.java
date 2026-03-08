@@ -38,7 +38,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         SearchResult movie = searchResults.get(position);
         holder.movieTitle.setText(movie.getName());
 
-        String imageUrl = Constants.BASE_URL + movie.getPicture().replace("\\", "/");
+        String imageUrl = movie.getPicture().replace("\\", "/");
 
         Glide.with(context)
                 .load(imageUrl)
@@ -46,7 +46,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
                 .error(android.R.drawable.stat_notify_error)
                 .into(holder.moviePoster);
 
-        String video = Constants.BASE_URL + movie.getVideo().replace("\\", "/");
+        String video = movie.getVideo().replace("\\", "/");
 
         // Extract extra details for consistency
         String title = movie.getName();

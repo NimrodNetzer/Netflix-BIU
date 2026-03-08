@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, "🎬 Video URL retrieved: " + videoUrl);
                     }
 
-                    featuredVideo.setVideoURI(Uri.parse(Constants.BASE_URL + videoUrl.replace("\\", "/")));
+                    featuredVideo.setVideoURI(Uri.parse(videoUrl.replace("\\", "/")));
                     featuredVideo.setOnPreparedListener(mp -> {
                         mp.setLooping(true);
                         featuredVideo.start();
@@ -109,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
                     Movie item = featuredMovie;
                     Movie movie = (Movie) item;
                     title = movie.getName();
-                    imageUrl = Constants.BASE_URL + movie.getPicture().replace("\\", "/");
+                    imageUrl = movie.getPicture().replace("\\", "/");
                     movieId = movie.getId();
                     description = movie.getDescription();
-                    video = Constants.BASE_URL + movie.getVideo().replace("\\", "/");
+                    video = movie.getVideo().replace("\\", "/");
                     quality = movie.getQuality();
                     duration = movie.getTime();
                     age = movie.getAge() + "+";
@@ -128,10 +128,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
                         intent.putExtra("movie_id", featuredMovie.getId());
                         intent.putExtra("movie_title", featuredMovie.getName());
-                        intent.putExtra("movie_image", Constants.BASE_URL + featuredMovie.getPicture().replace("\\", "/"));
+                        intent.putExtra("movie_image", featuredMovie.getPicture().replace("\\", "/"));
                         intent.putExtra("movie_details", "2025  |  " + featuredMovie.getAge() + "+  |  " + featuredMovie.getTime());
                         intent.putExtra("movie_description", featuredMovie.getDescription());
-                        intent.putExtra("video_url", Constants.BASE_URL + videoUrl.replace("\\", "/"));
+                        intent.putExtra("video_url", videoUrl.replace("\\", "/"));
                         intent.putExtra("movie_year", year);
                         intent.putExtra("movie_duration", duration);
                         intent.putExtra("movie_age", age);

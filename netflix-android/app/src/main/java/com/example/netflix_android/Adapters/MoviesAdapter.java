@@ -53,10 +53,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         if (item instanceof Movie) {
             Movie movie = (Movie) item;
             title = movie.getName();
-            imageUrl = Constants.BASE_URL + movie.getPicture().replace("\\", "/");
+            imageUrl = movie.getPicture().replace("\\", "/");
             movieId = movie.getId();
             description = movie.getDescription();
-            video = Constants.BASE_URL + movie.getVideo().replace("\\", "/");
+            video = movie.getVideo().replace("\\", "/");
             quality = movie.getQuality();
             duration = movie.getTime();
             age = movie.getAge() + "+";
@@ -70,10 +70,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         } else if (item instanceof SearchResult) {
             SearchResult searchResult = (SearchResult) item;
             title = searchResult.getName();
-            imageUrl = Constants.BASE_URL + searchResult.getPicture().replace("\\", "/");
+            imageUrl = searchResult.getPicture().replace("\\", "/");
             movieId = searchResult.getId();
             description = searchResult.getDescription();
-            video = Constants.BASE_URL + searchResult.getVideo().replace("\\", "/");
+            video = searchResult.getVideo().replace("\\", "/");
             quality = "N/A";
             category = "N/A";
             duration = searchResult.getTime();
