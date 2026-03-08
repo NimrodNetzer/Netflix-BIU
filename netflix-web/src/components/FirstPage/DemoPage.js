@@ -158,6 +158,27 @@ function DemoPage() {
           </div>
         </div>
 
+        {/* Android Download */}
+        <div className="demo-section">
+          <h2>Android App</h2>
+          <p className="demo-hint">
+            Download the native Android app (Java / MVVM) and install it on your device.
+          </p>
+          <a
+            href="https://github.com/NimrodNetzer/Netflix-BIU/releases/download/v1.0.0/app-release.apk"
+            className="demo-apk-btn"
+            download
+          >
+            <svg height="20" width="20" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: 8, verticalAlign: 'middle'}}>
+              <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
+            </svg>
+            Download Android APK (v1.0)
+          </a>
+          <p className="demo-apk-note">
+            Requires Android 7.0+. Enable "Install from unknown sources" in your device settings before installing.
+          </p>
+        </div>
+
         <button className="demo-big-launch-btn" onClick={() => navigate('/login')}>
           Launch the App
         </button>

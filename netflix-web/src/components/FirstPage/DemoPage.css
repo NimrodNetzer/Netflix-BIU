@@ -256,6 +256,30 @@
 }
 .copy-btn:hover { border-color: #e50914; color: #e50914; }
 
+/* APK download */
+.demo-apk-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #1db954;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-bottom: 14px;
+}
+.demo-apk-btn:hover { background: #17a349; transform: scale(1.03); }
+
+.demo-apk-note {
+  color: #888;
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
 /* Big CTA */
 .demo-big-launch-btn {
   display: block;
