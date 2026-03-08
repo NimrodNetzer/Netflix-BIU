@@ -52,6 +52,7 @@ function MovieDetailsModal({ movie, isOpen, onClose, updateMovie, autoPlay }) {
     };
 
     fetchRelatedMovies();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, movie]);
 
   const addToRecommendations = async () => {

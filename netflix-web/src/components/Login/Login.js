@@ -83,7 +83,7 @@ const Login = () => {
           </button>
 
           <div className="additional-options">
-            <a onClick={() => navigate('/')}>New to Netflix? Sign up now</a>
+            <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>New to Netflix? Sign up now</a>
           </div>
         </form>
       </div>

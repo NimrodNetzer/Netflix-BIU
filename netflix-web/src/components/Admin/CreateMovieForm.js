@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './CreateMovieForm.css';
-const API_URL = process.env.REACT_APP_API_URL;
 
 const CreateMovieForm = ({ onSubmit, onCancel, movieData }) => {
   const isUpdate = Boolean(movieData);
@@ -15,7 +14,7 @@ const CreateMovieForm = ({ onSubmit, onCancel, movieData }) => {
   const [releaseDate, setReleaseDate] = useState(movieData?.releaseDate || '');
   const [quality, setQuality] = useState(movieData?.quality || '');
   // Additional properties
-  const [genre, setGenre] = useState(movieData?.properties?.genre || '');
+  const [genre] = useState(movieData?.properties?.genre || '');
   const [language, setLanguage] = useState(movieData?.properties?.language || '');
   const [selectedCategories, setSelectedCategories] = useState(movieData?.categories || []);
   const [categories, setCategories] = useState([]);
@@ -49,6 +48,7 @@ const CreateMovieForm = ({ onSubmit, onCancel, movieData }) => {
       }
     };
     fetchCategories();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Prevent scrolling when modal is open

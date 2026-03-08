@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CategoryRow from './categoryRow';
 import './Home.css';
-import TopMenu from '../Utils/TopMenu';
 import FeaturedVideo from './FeaturedVideo'; // Import the new component
 const API_URL = process.env.REACT_APP_API_URL;
 function Home({ isAdmin = false }) {  // Accept isAdmin prop, default to false
