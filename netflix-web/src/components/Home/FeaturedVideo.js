@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './FeaturedVideo.css';
 import MovieDetailsModal from './movieDetailsModal'; // Import the modal component
-const API_URL = process.env.REACT_APP_API_URL;
 
 function FeaturedVideo({ movie }) {
   const [isModalOpen, setModalOpen] = useState(false); // Modal state
