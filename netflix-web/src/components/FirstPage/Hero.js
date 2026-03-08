@@ -21,6 +21,11 @@ function Hero() {
                 Sign In
             </button>
 
+            {/* Demo info button */}
+            <button onClick={() => navigate('/demo')} className="demo-info-button">
+                About this Project
+            </button>
+
             <div className="hero-content">
                 <h1 className="hero-title">
                     Unlimited movies, <br /> TV shows, and more

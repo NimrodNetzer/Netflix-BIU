@@ -7,6 +7,7 @@ import Hero from './components/FirstPage/Hero';
 import SearchPage from './components/Utils/SearchPage';
 import TopMenu from './components/Utils/TopMenu';
 import Admin from './components/Admin/Admin';
+import DemoPage from './components/FirstPage/DemoPage';
 import './index.css';
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/search/:query" element={<SearchPage />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/demo" element={<DemoPage />} />
         </Routes>
     </div>
     </Router>
