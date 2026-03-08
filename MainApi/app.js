@@ -27,8 +27,6 @@ const connectDB = async () => {
   }
 };
 
-connectDB(); // Call the function
-
 // Initialize the Express application
 const app = express();
 
@@ -41,6 +39,16 @@ app.use((req, res, next) => {
     return res.status(200).end();
   }
   next();
+});
+
+// Ensure DB is connected before any route handler runs
+app.use(async (_req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(503).json({ error: 'Database unavailable' });
+  }
 });
 
 app.use(cors({
