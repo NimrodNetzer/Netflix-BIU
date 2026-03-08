@@ -17,6 +17,27 @@
   z-index: 100;
 }
 
+.demo-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.demo-github-btn {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  color: #e5e5e5;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 9px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.demo-github-btn:hover { border-color: #fff; color: #fff; }
+
 .demo-logo {
   font-size: 1.8rem;
   font-weight: 900;
@@ -80,10 +101,36 @@
   gap: 10px;
 }
 
+.demo-tech-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.demo-tech-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
 .demo-tag {
   background: #2a2a2a;
   border: 1px solid #444;
   color: #e5e5e5;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.demo-tag-android {
+  background: #1a2a1a;
+  border: 1px solid #3a5a3a;
+  color: #90d090;
   border-radius: 20px;
   padding: 6px 16px;
   font-size: 0.88rem;
@@ -112,6 +159,12 @@
 .demo-features li::before {
   content: '✓ ';
   color: #e50914;
+  font-weight: 900;
+}
+
+.demo-features-android li::before {
+  content: '✓ ';
+  color: #4caf50;
   font-weight: 900;
 }
 
