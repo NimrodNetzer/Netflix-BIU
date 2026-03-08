@@ -15,14 +15,15 @@ const tokens = require('./routes/token');
 
 // Enhanced Connection Code
 const connectDB = async () => {
+  if (mongoose.connection.readyState >= 1) return; // Reuse existing connection in serverless
   try {
     await mongoose.connect(process.env.CONNECTION_STRING, {
-      serverSelectionTimeoutMS: 5000 // Timeout after 5s instead of buffering
+      serverSelectionTimeoutMS: 10000,
     });
     console.log('Connected to MongoDB');
   } catch (err) {
     console.error('MongoDB connection error:', err);
-    process.exit(1); // Stop the app if DB fails
+    // Do not call process.exit() in serverless — it crashes the function for all requests
   }
 };
 
