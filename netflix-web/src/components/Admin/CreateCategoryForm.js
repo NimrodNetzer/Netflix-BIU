@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './CreateCategoryForm.css'; // Ensure correct CSS import
-const API_URL = process.env.REACT_APP_API_URL;
 
 const CreateCategoryForm = ({ onSubmit, onCancel }) => {
   const [categoryName, setCategoryName] = useState('');
