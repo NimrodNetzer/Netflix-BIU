@@ -106,7 +106,7 @@ function MovieBox({ movie, width, isAdmin = false }) {
   };
 
   return (
-    <div className="movie-box" style={{ width }}>
+    <div className="movie-box" style={{ width }} onClick={!isAdmin ? handleInfoClick : undefined}>
       <img
         src={movie.picture}
         alt={movie.name}
@@ -116,25 +116,15 @@ function MovieBox({ movie, width, isAdmin = false }) {
         <div className="movie-hover-content">
           <div className="movie-buttons">
             {!isAdmin && (
-              <button className="play-button" onClick={handlePlayClick}>▶ Play</button>
+              <button className="play-button" onClick={(e) => { e.stopPropagation(); handlePlayClick(); }}>▶ Play</button>
             )}
-            <button className="info-button" onClick={handleInfoClick}>Info</button>
             {isAdmin && (
               <>
-                <button className="edit-button" onClick={handleEditClick}>✏ Edit</button>
-                <button className="delete-button" onClick={handleDeleteClick}>🗑 Delete</button>
+                <button className="edit-button" onClick={(e) => { e.stopPropagation(); handleEditClick(); }}>✏ Edit</button>
+                <button className="delete-button" onClick={(e) => { e.stopPropagation(); handleDeleteClick(); }}>🗑 Delete</button>
               </>
             )}
           </div>
-        </div>
-      </div>
-      <div className="movie-card-info">
-        <p className="movie-card-title">{movie.name}</p>
-        <div className="movie-card-meta">
-          {movie.releaseDate && <span>{new Date(movie.releaseDate).getFullYear()}</span>}
-          {movie.time && <span>{movie.time}m</span>}
-          {movie.age && <span>{movie.age}+</span>}
-          {movie.quality && <span>{movie.quality}</span>}
         </div>
       </div>
       <MovieDetailsModal 
