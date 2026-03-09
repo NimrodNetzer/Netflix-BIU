@@ -70,16 +70,27 @@ app.use('/api/movies', movieRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/movies/search', searchRoutes);
 
+<<<<<<< HEAD
 // Cron endpoint — called automatically by Vercel every hour to reseed the C++ server
+=======
+// Vercel cron job — re-seeds C++ recommendation server every hour
+>>>>>>> feature/my-feature
 app.post('/api/cron/seed-recommendations', async (req, res) => {
     if (req.headers['x-cron-secret'] !== process.env.CRON_SECRET) {
         return res.status(401).json({ error: 'Unauthorized' });
     }
     try {
+<<<<<<< HEAD
         const count = await seedRecommendations();
         res.json({ message: `Cron seeded ${count} events` });
     } catch (error) {
         console.error('Cron seed error:', error);
+=======
+        await connectDB();
+        const count = await seedRecommendations();
+        res.json({ message: `Seeded ${count} events` });
+    } catch (error) {
+>>>>>>> feature/my-feature
         res.status(500).json({ error: error.message });
     }
 });
