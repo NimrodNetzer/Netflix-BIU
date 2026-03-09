@@ -7,6 +7,7 @@ const {
     getRecommendations,
     addRecommendation,
     seedRecommendationsController,
+    populateAndSeedController,
     getMovies
 } = require('../controllers/movie');
 const { upload } = require('../middleware/uploadMiddleware'); // Adjust the path if necessary
@@ -16,8 +17,9 @@ const isAuthenticated = require('./auth'); // Import the authentication middlewa
 const router = express.Router();
 router.use(isAuthenticated);
 
-// Seed route must come before /:id to avoid being captured as a param
+// These routes must come before /:id to avoid being captured as a param
 router.post('/seed-recommendations', seedRecommendationsController);
+router.post('/populate-and-seed', populateAndSeedController);
 
 // Movie Routes
 router

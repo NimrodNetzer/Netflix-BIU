@@ -114,6 +114,34 @@ const deleteWatchedMovie = async (movieId) => {
 };
    
 
+const populateAndSeed = async () => {
+    const Movie = require('../models/movie');
+
+    // Get all movie IDs from MongoDB
+    const movies = await Movie.find({}, '_id');
+    const movieIds = movies.map(m => m._id);
+    if (movieIds.length === 0) throw new Error('No movies in database');
+
+    const users = await User.find({}, '_id moviesList');
+    if (users.length === 0) throw new Error('No users in database');
+
+    // Assign each user a random 40-70% slice of all movies as their watch history
+    // Only populate users who have fewer than 3 movies watched
+    for (const user of users) {
+        if (user.moviesList && user.moviesList.length >= 3) continue;
+
+        const shuffled = [...movieIds].sort(() => Math.random() - 0.5);
+        const count = Math.floor(movieIds.length * (0.4 + Math.random() * 0.3));
+        const assigned = shuffled.slice(0, count);
+
+        const moviesList = assigned.map(id => ({ movieId: id, watchedAt: new Date() }));
+        await User.updateOne({ _id: user._id }, { $set: { moviesList } });
+    }
+
+    // Now seed the C++ server from the updated MongoDB data
+    return seedRecommendations();
+};
+
 const seedRecommendations = async () => {
     const users = await User.find({}, '_id moviesList');
     let seeded = 0;
@@ -148,5 +176,6 @@ module.exports = {
     fetchRecommendations,
     addRecommendation,
     deleteWatchedMovie,
-    seedRecommendations
+    seedRecommendations,
+    populateAndSeed
 };

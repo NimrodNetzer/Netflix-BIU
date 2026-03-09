@@ -158,6 +158,19 @@ const seedRecommendationsController = async (req, res) => {
     }
 };
 
+const populateAndSeedController = async (req, res) => {
+    if (!req.admin) {
+        return res.status(403).json({ error: 'Admin only' });
+    }
+    try {
+        const count = await recommendationService.populateAndSeed();
+        res.json({ message: `Populated watch histories and seeded ${count} events into recommendation server` });
+    } catch (error) {
+        console.error('Populate+seed error:', error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
     createMovieController,
     getMovie,
@@ -166,5 +179,6 @@ module.exports = {
     getRecommendations,
     addRecommendation,
     seedRecommendationsController,
+    populateAndSeedController,
     getMovies
 };
