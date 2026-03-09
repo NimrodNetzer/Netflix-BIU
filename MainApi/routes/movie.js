@@ -1,12 +1,13 @@
 const express = require('express');
-const { 
-    createMovieController, 
-    getMovie, 
-    deleteMovie, 
-    updateMovie, 
-    getRecommendations, 
+const {
+    createMovieController,
+    getMovie,
+    deleteMovie,
+    updateMovie,
+    getRecommendations,
     addRecommendation,
-    getMovies 
+    seedRecommendationsController,
+    getMovies
 } = require('../controllers/movie');
 const { upload } = require('../middleware/uploadMiddleware'); // Adjust the path if necessary
 
@@ -42,7 +43,9 @@ router
 // Recommendation Routes
 router
     .route('/:id/recommend')
-    .get(getRecommendations) // Fetch recommended movies
-    .post(addRecommendation); // Add watched movie for recommendation
+    .get(getRecommendations)
+    .post(addRecommendation);
+
+router.post('/seed-recommendations', seedRecommendationsController);
 
 module.exports = router;

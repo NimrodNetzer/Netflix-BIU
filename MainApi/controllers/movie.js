@@ -145,6 +145,19 @@ const addRecommendation = async (req, res) => {
 
 
 
+const seedRecommendationsController = async (req, res) => {
+    if (!req.admin) {
+        return res.status(403).json({ error: 'Admin only' });
+    }
+    try {
+        const count = await recommendationService.seedRecommendations();
+        res.json({ message: `Seeded ${count} watch events into recommendation server` });
+    } catch (error) {
+        console.error('Seed error:', error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
     createMovieController,
     getMovie,
@@ -152,5 +165,6 @@ module.exports = {
     updateMovie,
     getRecommendations,
     addRecommendation,
+    seedRecommendationsController,
     getMovies
 };

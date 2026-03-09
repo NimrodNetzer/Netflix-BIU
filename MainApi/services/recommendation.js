@@ -114,8 +114,39 @@ const deleteWatchedMovie = async (movieId) => {
 };
    
 
+const seedRecommendations = async () => {
+    const users = await User.find({}, '_id moviesList');
+    let seeded = 0;
+
+    for (const user of users) {
+        if (!user.moviesList || user.moviesList.length === 0) continue;
+        const socketClient = new SocketClient(serverIp, serverPort);
+        try {
+            await socketClient.connect();
+            for (const { movieId } of user.moviesList) {
+                try {
+                    const postResponse = await socketClient.send(`POST ${user._id} ${movieId}\n`);
+                    if (postResponse.startsWith('201')) {
+                        seeded++;
+                    } else if (postResponse.startsWith('404')) {
+                        const patchResponse = await socketClient.send(`PATCH ${user._id} ${movieId}\n`);
+                        if (patchResponse.startsWith('204')) seeded++;
+                    }
+                } catch (err) {
+                    console.error(`Seed error user ${user._id} movie ${movieId}:`, err.message);
+                }
+            }
+        } finally {
+            socketClient.disconnect();
+        }
+    }
+
+    return seeded;
+};
+
 module.exports = {
     fetchRecommendations,
     addRecommendation,
-    deleteWatchedMovie
+    deleteWatchedMovie,
+    seedRecommendations
 };
