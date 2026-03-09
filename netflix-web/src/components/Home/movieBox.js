@@ -106,45 +106,47 @@ function MovieBox({ movie, width, isAdmin = false }) {
   };
 
   return (
-    <div className="movie-box" style={{ width }} onClick={!isAdmin ? handleInfoClick : undefined}>
-      <img
-        src={movie.picture}
-        alt={movie.name}
-        className="default-image"
-      />
-      <div className="movie-hover-overlay">
-        <div className="movie-hover-content">
-          <div className="movie-buttons">
-            {!isAdmin && (
-              <>
-                <button className="play-button" onClick={(e) => { e.stopPropagation(); handlePlayClick(); }}>▶ Play</button>
-                <button className="info-button" onClick={(e) => { e.stopPropagation(); handleInfoClick(); }}>ℹ Info</button>
-              </>
-            )}
-            {isAdmin && (
-              <>
-                <button className="edit-button" onClick={(e) => { e.stopPropagation(); handleEditClick(); }}>✏ Edit</button>
-                <button className="delete-button" onClick={(e) => { e.stopPropagation(); handleDeleteClick(); }}>🗑 Delete</button>
-              </>
-            )}
+    <>
+      <div className="movie-box" style={{ width }} onClick={!isAdmin ? handleInfoClick : undefined}>
+        <img
+          src={movie.picture}
+          alt={movie.name}
+          className="default-image"
+        />
+        <div className="movie-hover-overlay">
+          <div className="movie-hover-content">
+            <div className="movie-buttons">
+              {!isAdmin && (
+                <>
+                  <button className="play-button" onClick={(e) => { e.stopPropagation(); handlePlayClick(); }}>▶ Play</button>
+                  <button className="info-button" onClick={(e) => { e.stopPropagation(); handleInfoClick(); }}>ℹ Info</button>
+                </>
+              )}
+              {isAdmin && (
+                <>
+                  <button className="edit-button" onClick={(e) => { e.stopPropagation(); handleEditClick(); }}>✏ Edit</button>
+                  <button className="delete-button" onClick={(e) => { e.stopPropagation(); handleDeleteClick(); }}>🗑 Delete</button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
-      <MovieDetailsModal 
-        movie={selectedMovie} 
-        isOpen={isModalOpen} 
-        onClose={closeModal} 
-        updateMovie={updateMovie} 
+      <MovieDetailsModal
+        movie={selectedMovie}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        updateMovie={updateMovie}
         autoPlay={autoPlay}
       />
       {isEditModalOpen && (
-        <CreateMovieForm 
-          movieData={movie} 
-          onSubmit={handleEditSubmit} 
-          onCancel={closeEditModal} 
+        <CreateMovieForm
+          movieData={movie}
+          onSubmit={handleEditSubmit}
+          onCancel={closeEditModal}
         />
       )}
-    </div>
+    </>
   );
 }
 

@@ -23,13 +23,11 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
-  border-radius: 6px;
   transition: filter 0.3s ease-in-out;
 }
 
 .movie-box:hover .default-image {
   filter: brightness(0.5);
-  border-radius: 6px;
 }
 
 .movie-hover-overlay {
