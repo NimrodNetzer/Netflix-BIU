@@ -12,6 +12,7 @@ const categoryRoutes = require('./routes/category');
 const searchRoutes = require('./routes/search');
 const users = require('./routes/user');
 const tokens = require('./routes/token');
+const { seedRecommendations } = require('./services/recommendation');
 
 // Enhanced Connection Code
 const connectDB = async () => {
@@ -63,11 +64,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Define routes for the application
-app.use('/api/users', users); // Routes for user operations (e.g., create, update, delete users)
-app.use('/api/tokens', tokens); // Routes for token operations (e.g., validate, create tokens)
+app.use('/api/users', users);
+app.use('/api/tokens', tokens);
 app.use('/api/movies', movieRoutes);
 app.use('/api/categories', categoryRoutes);
-app.use('/api/movies/search', searchRoutes)
+app.use('/api/movies/search', searchRoutes);
+
+// Cron endpoint — called automatically by Vercel every hour to reseed the C++ server
+app.post('/api/cron/seed-recommendations', async (req, res) => {
+    if (req.headers['x-cron-secret'] !== process.env.CRON_SECRET) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+    try {
+        const count = await seedRecommendations();
+        res.json({ message: `Cron seeded ${count} events` });
+    } catch (error) {
+        console.error('Cron seed error:', error);
+        res.status(500).json({ error: error.message });
+    }
+});
 
 // const uploadsDir = path.join(__dirname, 'public/uploads');
 // if (!fs.existsSync(uploadsDir)) {
