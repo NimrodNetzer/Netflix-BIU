@@ -10,11 +10,15 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import java.util.concurrent.TimeUnit;
 public class RetrofitClient {
     private static Retrofit retrofit;
 
     public static Retrofit getRetrofitInstance(Context context) {
         OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(chain -> {
                     Request original = chain.request();
                     Request.Builder requestBuilder = original.newBuilder();

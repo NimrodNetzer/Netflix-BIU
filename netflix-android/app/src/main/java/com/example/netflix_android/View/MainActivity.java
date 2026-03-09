@@ -16,11 +16,10 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.widget.FrameLayout;
 import com.example.netflix_android.Adapters.CategoryAdapter;
 import com.example.netflix_android.Entities.Movie;
-import com.example.netflix_android.Entities.SearchResult;
 import com.example.netflix_android.R;
-import com.example.netflix_android.Utils.Constants;
 import com.example.netflix_android.Utils.SessionManager;
 import com.example.netflix_android.Utils.TopMenuManager;
 import com.example.netflix_android.ViewModel.MoviesViewModel;
@@ -36,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private MoviesViewModel moviesViewModel;
     private VideoView featuredVideo;
     private TextView featuredVideoDescription;
+    private FrameLayout loadingOverlay;
 
     // Top menu items
     private ImageView searchIcon, netflixLogo;
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         featuredVideoDescription = findViewById(R.id.featured_video_description);
         categoriesRecyclerView = findViewById(R.id.categories_recycler_view);
         categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        loadingOverlay = findViewById(R.id.loading_overlay);
 
         // ViewModel
         moviesViewModel = new ViewModelProvider(this, new MoviesViewModelFactory(this)).get(MoviesViewModel.class);
@@ -71,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadMovies() {
+        loadingOverlay.setVisibility(View.VISIBLE);
         moviesViewModel.getMovies().observe(this, moviesResultsList -> {
+            loadingOverlay.setVisibility(View.GONE);
             if (moviesResultsList != null && !moviesResultsList.isEmpty()) {
                 Map<String, List<Movie>> categorizedMovies = moviesViewModel.getMoviesGroupedByCategory(moviesResultsList);
 
@@ -149,13 +152,12 @@ public class MainActivity extends AppCompatActivity {
                 categoriesRecyclerView.setAdapter(categoryAdapter);
             } else {
                 Log.e(TAG, "⚠️ No movies found.");
+                android.widget.Toast.makeText(this, "Could not load movies. Please try again.", android.widget.Toast.LENGTH_LONG).show();
             }
         });
     }
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "🔄 onResume called - Refreshing movies list.");
-        loadMovies();
     }
 }
