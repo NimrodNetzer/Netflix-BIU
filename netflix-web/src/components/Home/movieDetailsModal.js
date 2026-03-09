@@ -63,7 +63,7 @@ function MovieDetailsModal({ movie, isOpen, onClose, updateMovie, autoPlay }) {
     }
 
     try {
-      const response = await fetch(`${API_URL}:/api/movies/${movie._id}/recommend`, {
+      const response = await fetch(`${API_URL}/api/movies/${movie._id}/recommend`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
