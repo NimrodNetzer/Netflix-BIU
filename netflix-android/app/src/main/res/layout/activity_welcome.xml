@@ -33,6 +33,21 @@
         android:text="Sign In"
         android:textColor="@color/text_on_image" />
 
+    <!-- ℹ️ Info Button (Top Left) -->
+    <Button
+        android:id="@+id/button_info_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="37dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="#99000000"
+        android:padding="12dp"
+        android:text="INFO"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
     <!-- 📣 Welcome Text & CTA -->
     <LinearLayout
         android:layout_width="match_parent"

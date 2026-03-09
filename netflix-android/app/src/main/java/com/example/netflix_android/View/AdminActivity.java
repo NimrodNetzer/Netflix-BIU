@@ -1,6 +1,5 @@
 package com.example.netflix_android.View;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.content.Intent;
@@ -47,12 +46,7 @@ public class AdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences prefs = getSharedPreferences("theme_prefs", MODE_PRIVATE);
-        boolean isDarkMode = prefs.getBoolean("dark_mode", true);
-        AppCompatDelegate.setDefaultNightMode(
-                isDarkMode ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
-        );
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_settings);
         Log.d(TAG, "⚙️ Admin Panel Opened");
