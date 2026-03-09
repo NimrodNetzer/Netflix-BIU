@@ -11,13 +11,18 @@ import java.util.Map;
 
 public class MoviesViewModel extends ViewModel {
     private final MoviesRepository moviesRepository;
+    private LiveData<List<MoviesResults>> moviesLiveData;
 
     public MoviesViewModel(MoviesRepository moviesRepository) {
         this.moviesRepository = moviesRepository;
     }
 
     public LiveData<List<MoviesResults>> getMovies() {
-        return moviesRepository.getMovies();
+        // Create new LiveDate if it doesn't exist yet
+        if (moviesLiveData == null) {
+            moviesLiveData = moviesRepository.getMovies();
+        }
+        return moviesLiveData;
     }
 
     // Convert API response into a map of category -> movies list

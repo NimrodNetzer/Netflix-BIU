@@ -51,7 +51,9 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        loginButton.setEnabled(false);
         authViewModel.login(email, password).observe(this, success -> {
+            loginButton.setEnabled(true);
             if (success) {
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
                 navigateToMainActivity();

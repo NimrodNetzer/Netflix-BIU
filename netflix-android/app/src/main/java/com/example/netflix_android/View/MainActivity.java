@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // ✅ Load saved theme preference
+        // Load saved theme preference
         SharedPreferences prefs = getSharedPreferences("theme_prefs", MODE_PRIVATE);
         boolean isDarkMode = prefs.getBoolean("dark_mode", true);
         AppCompatDelegate.setDefaultNightMode(
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "🚀 App Started - Fetching Movies...");
 
-        TopMenuManager.setup(this); // ✅ Shared top menu
+        TopMenuManager.setup(this); // Shared top menu
 
         // UI Elements
         featuredVideo = findViewById(R.id.featured_video);

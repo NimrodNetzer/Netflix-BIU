@@ -40,7 +40,9 @@ public class SignupActivity extends AppCompatActivity {
             String password = passwordInput.getText().toString().trim();
             String nickname = nicknameInput.getText().toString().trim();
 
+            signupButton.setEnabled(false);
             authViewModel.signup(email, password, nickname, "").observe(this, success -> {
+                signupButton.setEnabled(true);
                 if (success) {
                     Toast.makeText(SignupActivity.this, "Signup successful!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
