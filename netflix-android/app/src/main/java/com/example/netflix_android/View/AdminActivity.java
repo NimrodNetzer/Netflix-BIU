@@ -121,11 +121,6 @@ public class AdminActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (isViewingMovies) {
-            loadMovies();
-        } else {
-            loadCategories();
-        }
     }
 
     @SuppressWarnings("MissingSuperCall")
