@@ -62,10 +62,14 @@ public class TopMenuManager {
             }
         });
 
-        // ℹ️ Info button
+        // ℹ️ Info button (hidden on AdminActivity — not enough space)
         if (infoButton != null) {
-            infoButton.setOnClickListener(v ->
-                activity.startActivity(new Intent(activity, InfoActivity.class)));
+            if (activity instanceof AdminActivity) {
+                infoButton.setVisibility(View.GONE);
+            } else {
+                infoButton.setOnClickListener(v ->
+                    activity.startActivity(new Intent(activity, InfoActivity.class)));
+            }
         }
 
         // 🔍 Search icon
