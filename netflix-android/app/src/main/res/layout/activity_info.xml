@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#141414">
+
+    <!-- Header Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="#1a1a1a">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="About This App"
+            android:textColor="#E50914"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/info_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Back"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:backgroundTint="#E50914" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- App Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NETFLIX-BIU"
+                android:textColor="#E50914"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android Mobile Application"
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:paddingBottom="20dp" />
+
+            <!-- Project Description -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#1E1E1E"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Project Overview"
+                    android:textColor="#E50914"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A full-stack Netflix clone built as a university project at Bar-Ilan University. The Android app connects to a Node.js REST API hosted on Vercel, with MongoDB Atlas as the database and Cloudinary for media storage. Users can browse movies by category, search, watch trailers, and receive personalized recommendations."
+                    android:textColor="#CCCCCC"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp" />
+            </LinearLayout>
+
+            <!-- Demo Credentials -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#1E1E1E"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Demo Credentials"
+                    android:textColor="#E50914"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="12dp" />
+
+                <!-- Admin Account -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#2A2A2A"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Admin Account"
+                        android:textColor="#FFD700"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="4dp">
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Email:"
+                            android:textColor="#AAAAAA"
+                            android:textSize="13sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="admin@example.com"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Password:"
+                            android:textColor="#AAAAAA"
+                            android:textSize="13sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="admin123"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Regular User Account -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#2A2A2A"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Regular User Account"
+                        android:textColor="#4CAF50"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="4dp">
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Email:"
+                            android:textColor="#AAAAAA"
+                            android:textSize="13sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="user@example.com"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Password:"
+                            android:textColor="#AAAAAA"
+                            android:textSize="13sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="User1234"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Key Features -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#1E1E1E"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Key Features"
+                    android:textColor="#E50914"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Browse movies grouped by category\n• Search movies in real-time with debounce\n• Watch trailers inside the app (ExoPlayer)\n• Personalized movie recommendations (ML-based)\n• JWT authentication with secure token storage\n• Admin panel: add, edit, and delete movies\n• Admin panel: manage movie categories\n• Offline-ready: Room database caches movie data\n• Portrait and landscape video playback"
+                    android:textColor="#CCCCCC"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="6dp" />
+            </LinearLayout>
+
+            <!-- Admin Features -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#1E1E1E"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Admin Capabilities"
+                    android:textColor="#E50914"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Log in with the admin account to unlock the admin panel (crown icon in the top bar). From there you can:\n\n• Add a new movie: enter title, description, release year, age rating, duration, quality, categories, and upload a poster image and video via Cloudinary\n• Edit any existing movie's details\n• Delete movies from the catalogue\n• Create and manage movie categories"
+                    android:textColor="#CCCCCC"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp" />
+            </LinearLayout>
+
+            <!-- Technologies -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#1E1E1E"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Technologies Used"
+                    android:textColor="#E50914"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="10dp" />
+
+                <!-- Android / Mobile -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Android / Mobile"
+                    android:textColor="#FFD700"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Java · Android SDK · MVVM Architecture\n• Retrofit 2 + OkHttp (REST API client)\n• Room Database (local offline cache)\n• LiveData + ViewModel (reactive UI)\n• ExoPlayer (video playback)\n• Glide (image loading)\n• Auth0 JWT decoder (token parsing)"
+                    android:textColor="#CCCCCC"
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="4dp"
+                    android:paddingBottom="10dp" />
+
+                <!-- Backend -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Backend"
+                    android:textColor="#FFD700"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Node.js + Express.js (REST API)\n• MongoDB Atlas (cloud database)\n• Mongoose (ODM)\n• JSON Web Tokens (JWT auth)\n• Bcrypt (password hashing)\n• Vercel (serverless deployment)"
+                    android:textColor="#CCCCCC"
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="4dp"
+                    android:paddingBottom="10dp" />
+
+                <!-- Media & Frontend -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Media &amp; Web"
+                    android:textColor="#FFD700"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Cloudinary (image and video cloud storage)\n• React.js (web companion app)\n• C++ Recommendation System (separate service)"
+                    android:textColor="#CCCCCC"
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="4dp" />
+            </LinearLayout>
+
+            <!-- Architecture -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#1E1E1E"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Architecture"
+                    android:textColor="#E50914"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="The Android app follows MVVM (Model-View-ViewModel) pattern:\n\n  View (Activities) → ViewModel → Repository → API / Room DB\n\nThis keeps the UI decoupled from data logic. LiveData ensures the UI automatically updates when data changes. The Repository decides whether to fetch fresh data from the network or serve it from the local Room cache."
+                    android:textColor="#CCCCCC"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp" />
+            </LinearLayout>
+
+            <!-- Footer -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bar-Ilan University · 2025"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

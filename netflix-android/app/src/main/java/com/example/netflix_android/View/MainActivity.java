@@ -1,18 +1,13 @@
 package com.example.netflix_android.View;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +15,6 @@ import android.widget.FrameLayout;
 import com.example.netflix_android.Adapters.CategoryAdapter;
 import com.example.netflix_android.Entities.Movie;
 import com.example.netflix_android.R;
-import com.example.netflix_android.Utils.SessionManager;
 import com.example.netflix_android.Utils.TopMenuManager;
 import com.example.netflix_android.ViewModel.MoviesViewModel;
 import com.example.netflix_android.ViewModel.MoviesViewModelFactory;
@@ -37,21 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView featuredVideoDescription;
     private FrameLayout loadingOverlay;
 
-    // Top menu items
-    private ImageView searchIcon, netflixLogo;
-    private Button exitButton, adminButton;
-    private SwitchCompat themeSwitch;
     private Movie featuredMovie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Load saved theme preference
-        SharedPreferences prefs = getSharedPreferences("theme_prefs", MODE_PRIVATE);
-        boolean isDarkMode = prefs.getBoolean("dark_mode", true);
-        AppCompatDelegate.setDefaultNightMode(
-                isDarkMode ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
-        );
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "🚀 App Started - Fetching Movies...");

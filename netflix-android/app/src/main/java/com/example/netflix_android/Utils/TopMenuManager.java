@@ -2,50 +2,31 @@ package com.example.netflix_android.Utils;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
-
 import com.example.netflix_android.R;
 import com.example.netflix_android.View.AdminActivity;
+import com.example.netflix_android.View.InfoActivity;
 import com.example.netflix_android.View.MainActivity;
 import com.example.netflix_android.View.SearchActivity;
 import com.example.netflix_android.View.WelcomeActivity;
 
 public class TopMenuManager {
 
-    public static void setup(Activity activity) {   
+    public static void setup(Activity activity) {
         ImageView searchIcon = activity.findViewById(R.id.icon_search);
         ImageView netflixLogo = activity.findViewById(R.id.netflix_logo);
         Button exitButton = activity.findViewById(R.id.button_exit);
+        Button infoButton = activity.findViewById(R.id.button_info);
         ImageView adminButton = activity.findViewById(R.id.button_admin);
-        SwitchCompat themeSwitch = activity.findViewById(R.id.theme_switch);
 
-        if (searchIcon == null || netflixLogo == null || exitButton == null || adminButton == null || themeSwitch == null) {
+        if (searchIcon == null || netflixLogo == null || exitButton == null || adminButton == null) {
             Log.e("TopMenuManager", "❌ Missing top menu views in layout.");
             return;
         }
-
-        // 🌙 Theme toggle setup
-        SharedPreferences prefs = activity.getSharedPreferences("theme_prefs", Activity.MODE_PRIVATE);
-        boolean isDarkMode = prefs.getBoolean("dark_mode", true);
-        themeSwitch.setChecked(isDarkMode);
-        themeSwitch.setText(isDarkMode ? "🌙" : "🌞");
-
-        themeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            prefs.edit().putBoolean("dark_mode", isChecked).apply();
-            // Do NOT call setDefaultNightMode here — MainActivity.onCreate() already reads
-            // the pref and applies the correct night mode on every recreation.
-            // Calling it here too triggers a second recreate(), causing the loading overlay
-            // to get stuck visible (observer never fires because Activity is destroyed mid-lifecycle).
-            themeSwitch.setText(isChecked ? "🌙" : "🌞");
-            activity.recreate();
-        });
 
         // 👑 Admin button behavior
         SessionManager sessionManager = new SessionManager(activity);
@@ -80,6 +61,12 @@ public class TopMenuManager {
                 activity.recreate();
             }
         });
+
+        // ℹ️ Info button
+        if (infoButton != null) {
+            infoButton.setOnClickListener(v ->
+                activity.startActivity(new Intent(activity, InfoActivity.class)));
+        }
 
         // 🔍 Search icon
         searchIcon.setOnClickListener(v -> {

@@ -46,6 +46,18 @@
         android:scaleType="fitCenter" />
 
 
+    <!-- ✅ Info Button -->
+    <Button
+        android:id="@+id/button_info"
+        android:layout_width="60dp"
+        android:layout_height="36dp"
+        android:layout_toStartOf="@id/button_exit"
+        android:layout_marginEnd="6dp"
+        android:backgroundTint="#333333"
+        android:text="INFO"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+
     <!-- ✅ Exit Button -->
     <Button
         android:id="@+id/button_exit"
@@ -57,16 +69,4 @@
         android:text="@string/exit"
         android:textColor="@color/text_on_button"
         android:textSize="12sp" />
-
-    <!-- ✅ Theme Toggle -->
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/theme_switch"
-        android:layout_width="60dp"
-        android:layout_height="36dp"
-        android:layout_toStartOf="@id/button_exit"
-        android:layout_marginEnd="6dp"
-        android:text="@string/theme_moon"
-        android:textColor="@color/text_primary"
-        android:textSize="12sp"
-        android:background="@android:color/transparent" />
 </RelativeLayout>
