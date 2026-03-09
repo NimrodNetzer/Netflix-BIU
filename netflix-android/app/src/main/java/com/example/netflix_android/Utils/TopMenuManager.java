@@ -39,11 +39,12 @@ public class TopMenuManager {
 
         themeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             prefs.edit().putBoolean("dark_mode", isChecked).apply();
-            AppCompatDelegate.setDefaultNightMode(
-                    isChecked ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
-            );
+            // Do NOT call setDefaultNightMode here — MainActivity.onCreate() already reads
+            // the pref and applies the correct night mode on every recreation.
+            // Calling it here too triggers a second recreate(), causing the loading overlay
+            // to get stuck visible (observer never fires because Activity is destroyed mid-lifecycle).
             themeSwitch.setText(isChecked ? "🌙" : "🌞");
-            activity.recreate(); // Refresh UI
+            activity.recreate();
         });
 
         // 👑 Admin button behavior
