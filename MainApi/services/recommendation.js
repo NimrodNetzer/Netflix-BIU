@@ -9,17 +9,49 @@ const serverIp = process.env.RECOMMENDATION_IP;
 const serverPort = process.env.RECOMMENDATION_PORT;
 const SocketClient = require('../utils/socketClient');
 
+const seedUser = async (userId) => {
+    const user = await User.findById(userId, '_id moviesList');
+    if (!user || !user.moviesList || user.moviesList.length === 0) return;
+
+    const socketClient = new SocketClient(serverIp, serverPort);
+    try {
+        await socketClient.connect();
+        for (const { movieId } of user.moviesList) {
+            try {
+                const postResponse = await socketClient.send(`POST ${userId} ${movieId}\n`);
+                if (postResponse.startsWith('404')) {
+                    await socketClient.send(`PATCH ${userId} ${movieId}\n`);
+                }
+            } catch (err) {
+                // continue seeding other movies
+            }
+        }
+    } finally {
+        socketClient.disconnect();
+    }
+};
+
 const fetchRecommendations = async (userId, movieId) => {
     const socketClient = new SocketClient(serverIp, serverPort);
     await socketClient.connect();
     const request = `GET ${userId} ${movieId}\n`;
-    const response = await socketClient.send(request);
+    let response = await socketClient.send(request);
     socketClient.disconnect();
 
     if (response.startsWith('404')) {
-        const error = new Error('User or Movie not found');
-        error.status = 404;
-        throw error;
+        // User may not exist in C++ server yet — seed them from MongoDB and retry
+        await seedUser(userId);
+
+        const retrySocket = new SocketClient(serverIp, serverPort);
+        await retrySocket.connect();
+        response = await retrySocket.send(request);
+        retrySocket.disconnect();
+
+        if (response.startsWith('404')) {
+            const error = new Error('User or Movie not found');
+            error.status = 404;
+            throw error;
+        }
     }
 
     return response.split(',').map((movieId) => parseInt(movieId.trim(), 10));
