@@ -1,31 +1,56 @@
 .movie-box {
   position: relative;
-  height: 280px;
   width: 340px;
   margin: 2px;
+  border-radius: 6px;
   overflow: hidden;
-  border-radius: 15px; 
-  box-shadow: none !important; /* ✅ Removes any shadow */
-  background-color: transparent !important; /* ✅ Ensures it blends with the page */
-  transition: transform 0.3s ease-in-out;
+  background-color: #2f2f2f;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  border: none !important; /* ✅ Ensures there's no border */
+  border: none !important;
+  flex-shrink: 0;
 }
 
 
-.movie-box:hover .default-image {
-  filter: brightness(0.5); /* Darkens the image */
+.movie-box:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  z-index: 2;
 }
 
 .default-image {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  display: block;
+  border-radius: 6px 6px 0 0;
   transition: filter 0.3s ease-in-out;
 }
 
 .movie-box:hover .default-image {
-  filter: brightness(0.6); /* Darkens the image */
+  filter: brightness(0.55);
+}
+
+.movie-card-info {
+  padding: 8px 10px 10px;
+  background: #2f2f2f;
+}
+
+.movie-card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-meta {
+  font-size: 0.72rem;
+  color: #a0a0a0;
+  display: flex;
+  gap: 8px;
 }
 
 .movie-hover-overlay {

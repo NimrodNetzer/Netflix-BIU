@@ -114,7 +114,6 @@ function MovieBox({ movie, width, isAdmin = false }) {
       />
       <div className="movie-hover-overlay">
         <div className="movie-hover-content">
-          <div className="movie-title2">{movie.name}</div>
           <div className="movie-buttons">
             {!isAdmin && (
               <button className="play-button" onClick={handlePlayClick}>▶ Play</button>
@@ -127,17 +126,15 @@ function MovieBox({ movie, width, isAdmin = false }) {
               </>
             )}
           </div>
-          <div className="movie-info">
-            <div className="movie-detail-box">
-              <span className="movie-age">{movie.age}+</span>
-            </div>
-            <div className="movie-detail-box">
-              <span className="movie-quality">{movie.quality}</span>
-            </div>
-            <div className="movie-detail-box">
-              <span className="movie-time">{movie.time}</span>
-            </div>
-          </div>
+        </div>
+      </div>
+      <div className="movie-card-info">
+        <p className="movie-card-title">{movie.name}</p>
+        <div className="movie-card-meta">
+          {movie.releaseDate && <span>{new Date(movie.releaseDate).getFullYear()}</span>}
+          {movie.time && <span>{movie.time}m</span>}
+          {movie.age && <span>{movie.age}+</span>}
+          {movie.quality && <span>{movie.quality}</span>}
         </div>
       </div>
       <MovieDetailsModal 
