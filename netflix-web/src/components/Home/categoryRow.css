@@ -21,10 +21,10 @@
 /* 🎬 Movie List */
 .category-row .movie-list {
   display: flex;
+  align-items: flex-start;
   overflow-x: auto; /* Enables horizontal scrolling */
   scroll-behavior: smooth;
   padding: 10px 0;
-  white-space: nowrap; /* Ensures movies stay in one line */
 }
 
 /* 🎬 Show scrollbar */
