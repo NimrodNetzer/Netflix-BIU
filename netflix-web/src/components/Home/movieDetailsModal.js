@@ -27,7 +27,7 @@ function MovieDetailsModal({ movie, isOpen, onClose, updateMovie, autoPlay }) {
 
         const data = await response.json();
 
-        const moviesDetails = await Promise.all(
+        const moviesDetails = (await Promise.all(
           data.recommendedMovies.map(async (id) => {
             const movieResponse = await fetch(`${API_URL}/api/movies/${id}`, {
               method: 'GET',
@@ -37,13 +37,10 @@ function MovieDetailsModal({ movie, isOpen, onClose, updateMovie, autoPlay }) {
               },
             });
 
-            if (!movieResponse.ok) {
-              throw new Error(`Failed to fetch movie with ID: ${id}`);
-            }
-
+            if (!movieResponse.ok) return null;
             return movieResponse.json();
           })
-        );
+        )).filter(Boolean);
 
         setRelatedMovies(moviesDetails);
       } catch (error) {
