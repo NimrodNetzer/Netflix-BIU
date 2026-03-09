@@ -9,6 +9,8 @@ const serverIp = process.env.RECOMMENDATION_IP;
 const serverPort = process.env.RECOMMENDATION_PORT;
 const SocketClient = require('../utils/socketClient');
 
+let isReseeding = false;
+
 const seedUser = async (userId) => {
     const user = await User.findById(userId, '_id moviesList');
     if (!user || !user.moviesList || user.moviesList.length === 0) return;
@@ -48,6 +50,13 @@ const fetchRecommendations = async (userId, movieId) => {
         retrySocket.disconnect();
 
         if (response.startsWith('404')) {
+            // C++ server is cold (Railway restart wiped data) — reseed all users in background
+            if (!isReseeding) {
+                isReseeding = true;
+                populateAndSeed()
+                    .catch(err => console.error('Background reseed failed:', err))
+                    .finally(() => { isReseeding = false; });
+            }
             const error = new Error('User or Movie not found');
             error.status = 404;
             throw error;
