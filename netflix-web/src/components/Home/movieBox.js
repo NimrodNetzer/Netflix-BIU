@@ -116,7 +116,10 @@ function MovieBox({ movie, width, isAdmin = false }) {
         <div className="movie-hover-content">
           <div className="movie-buttons">
             {!isAdmin && (
-              <button className="play-button" onClick={(e) => { e.stopPropagation(); handlePlayClick(); }}>▶ Play</button>
+              <>
+                <button className="play-button" onClick={(e) => { e.stopPropagation(); handlePlayClick(); }}>▶ Play</button>
+                <button className="info-button" onClick={(e) => { e.stopPropagation(); handleInfoClick(); }}>ℹ Info</button>
+              </>
             )}
             {isAdmin && (
               <>
