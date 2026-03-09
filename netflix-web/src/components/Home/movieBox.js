@@ -131,6 +131,14 @@ function MovieBox({ movie, width, isAdmin = false }) {
             </div>
           </div>
         </div>
+        <div className="movie-card-info">
+          <p className="movie-card-title">{movie.name}</p>
+          <div className="movie-card-meta">
+            {movie.releaseDate && <span>{new Date(movie.releaseDate).getFullYear()}</span>}
+            {movie.time && <span>{movie.time}m</span>}
+            {movie.age && <span>{movie.age}+</span>}
+          </div>
+        </div>
       </div>
       <MovieDetailsModal
         movie={selectedMovie}

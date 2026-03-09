@@ -127,6 +127,27 @@
   text-align: center;
 }
 
+.movie-card-info {
+  padding: 8px 10px 10px;
+}
+
+.movie-card-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-meta {
+  font-size: 0.72rem;
+  color: #a0a0a0;
+  display: flex;
+  gap: 8px;
+}
+
 .edit-button,
 .delete-button {
   background: rgba(255, 255, 255, 0.1);
