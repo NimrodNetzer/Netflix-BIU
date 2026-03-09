@@ -4,7 +4,7 @@
   margin: 2px;
   border-radius: 6px;
   overflow: hidden;
-  background-color: #2f2f2f;
+  background-color: #141414;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   border: none !important;
@@ -23,7 +23,6 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
-  border-radius: 6px;
   transition: filter 0.3s ease-in-out;
 }
 
