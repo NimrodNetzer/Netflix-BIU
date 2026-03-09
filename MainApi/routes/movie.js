@@ -16,6 +16,9 @@ const isAuthenticated = require('./auth'); // Import the authentication middlewa
 const router = express.Router();
 router.use(isAuthenticated);
 
+// Seed route must come before /:id to avoid being captured as a param
+router.post('/seed-recommendations', seedRecommendationsController);
+
 // Movie Routes
 router
   .route('/')
@@ -45,7 +48,5 @@ router
     .route('/:id/recommend')
     .get(getRecommendations)
     .post(addRecommendation);
-
-router.post('/seed-recommendations', seedRecommendationsController);
 
 module.exports = router;
