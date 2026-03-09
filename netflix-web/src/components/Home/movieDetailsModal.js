@@ -136,18 +136,26 @@ function MovieDetailsModal({ movie, isOpen, onClose, updateMovie, autoPlay }) {
             <div className="related-movie-list">
               {relatedMovies.length > 0 ? (
                 relatedMovies.map((relatedMovie) => (
-                  <div 
-                    key={relatedMovie._id} 
-                    className="related-movie-item" 
-                    onClick={() => handleMovieClick(relatedMovie)} 
-                    style={{ cursor: 'pointer' }} 
+                  <div
+                    key={relatedMovie._id}
+                    className="related-movie-item"
+                    onClick={() => handleMovieClick(relatedMovie)}
                   >
                     <img
                       src={relatedMovie.picture}
                       alt={relatedMovie.name}
                       className="related-movie-poster"
                     />
-                    <p className="related-movie-title">{relatedMovie.name}</p>
+                    <div className="related-movie-info">
+                      <p className="related-movie-title">{relatedMovie.name}</p>
+                      <div className="related-movie-meta">
+                        {relatedMovie.releaseDate && (
+                          <span>{new Date(relatedMovie.releaseDate).getFullYear()}</span>
+                        )}
+                        {relatedMovie.time && <span>{relatedMovie.time}m</span>}
+                        {relatedMovie.age && <span>{relatedMovie.age}+</span>}
+                      </div>
+                    </div>
                   </div>
                 ))
               ) : (

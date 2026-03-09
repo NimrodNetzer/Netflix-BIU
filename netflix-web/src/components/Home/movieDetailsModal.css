@@ -265,30 +265,63 @@
 }
 
 .related-movies {
-  margin-top: 20px;
+  margin-top: 24px;
+}
+
+.related-movies h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
 }
 
 .related-movie-list {
-  display: grid; /* Use grid layout */
-  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-  gap: 20px; /* Space between rows and columns */
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
 .related-movie-item {
-  text-align: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #2f2f2f;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+.related-movie-item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  z-index: 2;
 }
 
 .related-movie-poster {
-  width: 100%; /* Make the image responsive */
-  max-width: 150px; /* Limit the image size */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 5px;
-  margin: 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px 6px 0 0;
+}
+
+.related-movie-info {
+  padding: 8px 10px 10px;
 }
 
 .related-movie-title {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.related-movie-meta {
+  font-size: 0.72rem;
+  color: #a0a0a0;
+  display: flex;
+  gap: 8px;
 }
